@@ -12,14 +12,15 @@ public class RdP
 	private int[] vectorDeEstado;
 	private int[] transicionesSesibilizadas;
 	private String[] Plazas = {"P0","P1","P2","P3","P4","P5","P6","P7","P8","P9",
-							   "P10","P11","P12","P13","P14","P15","P16","P17","P18"};
+							   "P10","P11","P12","P13","P14","P15","P16"};
 	private String[] Transiciones = {"T0","T1","T2","T3","T4","T5","T6","T7","T8","T9",
-									 "T10","T11","T12","T13"};
+									 "T10","T11","T12"};
 	private Test test;
 	private VentanaDeTiempo vdt;
-	private long[] alfa = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	private long[] beta = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	private long[] marcaDeTiempo = {0,0,0,0,0,0,0,0,0,0,System.currentTimeMillis(),0,0,System.currentTimeMillis()};
+	private long[] alfa = {0,0,0,0,0,0,0,0,0,0,0,0,0};
+	private long[] beta = {0,0,0,0,0,0,0,0,0,0,0,0,0};
+	private long[] marcaDeTiempo = {0,0,0,0,0,0,0,0,0,System.currentTimeMillis(),0,0,System.currentTimeMillis()};
+	private boolean estaInhibida = false;
 /*
  * Transiciones temporales
  * 
@@ -30,13 +31,12 @@ public class RdP
 	private String vector1 = "";
 	private String vector2 = "";
 	private String vector3 = "";
-	private String vector4 = "";
 	
 	public RdP() throws FileNotFoundException
 	{
 		// Importamos la matriz de Ifile y el vector de marcado incial de sus respectivos archivos.
 		Scanner Ifile = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/I"));
-		Scanner Hfile = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/I"));
+		Scanner Hfile = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/H"));
 	    Scanner m0file = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/m0"));
 	    Scanner t0file = new Scanner(new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/Tsens"));
 	    
@@ -128,12 +128,18 @@ public class RdP
 		return vectorDeEstado;
 	}
 	
-	synchronized public boolean disparar(int[] disparo)
+	public synchronized boolean disparar(int[] disparo)
 	{
-		int posicionDeDisparo = 0;
-		posible = true;
+		this.posible = true;
+		this.estaInhibida = false;
 		int suma = 0;
+		int posicionDeDisparo = 0;
 		int multiplicacion[] = new int [fila]; // getFila() = 7
+		
+		for (int i = 0; i<fila; ++i)
+	    {
+	    	multiplicacion[i]=0;
+	    }
 		
 		for(int i=0; i<disparo.length; i++)
 		{
@@ -143,6 +149,17 @@ public class RdP
 				break;
 			}
 		}
+		
+		//*************************************************************************************
+		//Pruebo si la transicion contenida en el vector disparo, que es pasado como paramentro,
+		//esta inhibida.
+	    estaInhibida = verSiEstaInhibida(posicionDeDisparo);
+	    
+	    //Si esta inhibida el disparo no es posible. Se retorna false.
+	    if(estaInhibida)
+	    {
+	    	return false;
+	    }		
 		
 		if(beta[posicionDeDisparo] == -1)
 		{
@@ -187,6 +204,7 @@ public class RdP
 		//Si el disparo es posible.
 		if(posible)
 		{
+			//Se verifica si la transicion temporal se sensibilizo dentro del rango del tiempo.
 			if(esTemporal)
 			{
 				aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[posicionDeDisparo], posicionDeDisparo);
@@ -208,14 +226,17 @@ public class RdP
 					System.out.println("testVDT: " + aTiempo + "\n");
 				}
 			}
+			
 			//Se actualiza el marcado.
 			for(int i=0; i<fila; i++)
 			{
 				this.vectorDeEstado[i] = this.vectorDeEstado[i] + multiplicacion[i];
 			}
+			
+			//Se realiza el test de invariantes de plazas.
 			test.testIDP(vectorDeEstado);
 			
-			boolean aux = false;
+			//Se actualiza el vector de transiciones.
 			for(int j=0; j<columna; j++)
 			{
 				for(int i=0; i<fila; i++)
@@ -223,8 +244,8 @@ public class RdP
 					if(I[i][j]==-1)
 					{
 						this.transicionesSesibilizadas[j] = 1;
-						aux =  verSiEstaInhibida(j);
-						if(this.vectorDeEstado[i]==0 || aux == true)
+						
+						if(this.vectorDeEstado[i]==0) //Si una plaza no tiene un token entonces no esta sensibilizada
 						{
 							this.transicionesSesibilizadas[j] = 0;
 							break;
@@ -233,6 +254,19 @@ public class RdP
 				}
 			}
 			
+			//Se fija que las nuevas transiciones sensibilizadas no esten inhibidas.
+			for(int q=0; q<transicionesSesibilizadas.length; q++)
+			{
+				if(transicionesSesibilizadas[q] == 1)
+				{
+					if(verSiEstaInhibida(q))
+					{
+						transicionesSesibilizadas[q] = 0;
+					}
+				}
+			}
+			
+			//Seteamos nuevas marcas de tiempos para transiciones temporales sensibilizadas.
 			for(int c = 0; c<transicionesSesibilizadas.length;c++)
 			{
 				if(transicionesSesibilizadas[c] == 1) //Si esta sensibilizada
@@ -276,20 +310,20 @@ public class RdP
 	    }
 		return valorRetornado;
 	}
-	
+
 	public synchronized void MostrarVectores()
 	{
 		System.out.println("VECTOR DE ESTADO:");
 		
 		for(int i=0; i<Plazas.length; i++)
 		{
-			System.out.print(Plazas[i]+"  ");
+			System.out.print(Plazas[i]+"   ");
 		}
 		System.out.println("");
 		
 		for(int i=0; i<vectorDeEstado.length; i++)
 		{
-			System.out.print(" "+vectorDeEstado[i]+"  ");
+			System.out.print(" "+vectorDeEstado[i]+"   ");
 		}
 		System.out.println("");
 		
@@ -311,47 +345,38 @@ public class RdP
 	public synchronized String MostrarVe()
 	{
 		vector1 = "";
-		vector2 = "";
 		
 		vector1+="VECTOR DE ESTADO: \n";
 		
 		for(int i=0; i<Plazas.length; i++)
 		{
-			vector1+= Plazas[i]+"  ";
+			vector1+= Plazas[i]+":"+vectorDeEstado[i]+" - ";
 		}
 		vector1+="\n";
-	 
-
-		for(int i=0; i<vectorDeEstado.length; i++)
-		{
-			vector2+= vectorDeEstado[i]+"   ";
-		}
-		vector1 += vector2 += "\n";
-		vector1 += "------------------------ \n";
-		return vector1 ;
+		
+		return vector1;
 	}
 	
 	public synchronized String MostrarVs()
 	{
+		vector2 = "";
 		vector3 = "";
-		vector4 = "";
 		
-		vector3+="VECTOR DE TRANSICIONES SENSIBILIZADAS: \n";
+		vector2+="VECTOR DE TRANSICIONES SENSIBILIZADAS: \n";
 		
 		for(int i=0; i<Transiciones.length; i++)
 		{
-			vector3+=Transiciones[i]+"  ";
+			vector2+=Transiciones[i]+"  ";
 		}
-		vector3+="\n";
+		vector2+="\n";
 		
 		for(int i=0; i<transicionesSesibilizadas.length; i++)
 		{
-			vector4+= transicionesSesibilizadas[i]+"   ";
+			vector3+= transicionesSesibilizadas[i]+"   ";
 		}
-		vector3+= vector4 +="\n";
-		vector3 += "------------------------ \n";
+		vector2+= vector3 +="\n";
+		vector2 += "------------------------ \n";
 
-	return vector3;
-	
+	return vector2;
 	}
 }

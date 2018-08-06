@@ -55,15 +55,17 @@ public class Main
             
             GestorDeMonitor monitor = new GestorDeMonitor();
             
-            ProcesoFerrocarril h1 = new ProcesoFerrocarril(monitor, "TREN");
-            ProcesoFerrocarril h2 = new ProcesoFerrocarril(monitor, "CAR");
-            ProcesoFerrocarril h3 = new ProcesoFerrocarril(monitor, "GenV");
-            ProcesoFerrocarril h4 = new ProcesoFerrocarril(monitor, "GenT");
+            ProcesoFerrocarril h1 = new ProcesoFerrocarril(monitor, "H_Suben");                   
+            ProcesoFerrocarril h2 = new ProcesoFerrocarril(monitor, "H_Tren1");
+            ProcesoFerrocarril h3 = new ProcesoFerrocarril(monitor, "H_Tren2");
+            ProcesoFerrocarril h4 = new ProcesoFerrocarril(monitor, "H_Bajan");
+            ProcesoFerrocarril h5 = new ProcesoFerrocarril(monitor, "H_Auto");
             
             h1.start();
             h2.start();
             h3.start();
             h4.start();
+            h5.start();
 		
 		} 
 		catch (IOException ex) 

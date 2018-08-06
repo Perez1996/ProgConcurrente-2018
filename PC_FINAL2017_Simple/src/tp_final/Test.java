@@ -10,7 +10,35 @@ public class Test
 		{
 			condicion = false;
 		}
-		else if(M[2] + M[3] + M[8] != 10)
+		else if(M[2] + M[6] != 15)
+		{
+			condicion = false;
+		}
+		else if(M[0] + M[3] != 1)
+		{
+			condicion = false;
+		}
+		else if(M[5] + M[11] + M[12] + M[14] + M[15] + M[16] != 15)
+		{
+			condicion = false;
+		}
+		else if(M[7] + M[8] != 1)
+		{
+			condicion = false;
+		}
+		else if(M[0] + M[9] != 1)
+		{
+			condicion = false;
+		}
+		else if(M[10] + M[11] + M[12] != 5)
+		{
+			condicion = false;
+		}
+		else if(M[13] + M[14] + M[15] != 5)
+		{
+			condicion = false;
+		}
+		else if(M[1] + M[4] != 1)
 		{
 			condicion = false;
 		}
@@ -18,39 +46,7 @@ public class Test
 		{
 			condicion = false;
 		}
-		else if(M[0] + M[5] != 1)
-		{
-			condicion = false;
-		}
-		else if(M[7] + M[13] + M[14] + M[16] + M[17] + M[18] != 10)
-		{
-			condicion = false;
-		}
-		else if(M[9] + M[10] != 1)
-		{
-			condicion = false;
-		}
-		else if(M[0] + M[11] != 1)
-		{
-			condicion = false;
-		}
-		else if(M[12] + M[13] + M[14] != 5)
-		{
-			condicion = false;
-		}
-		else if(M[15] + M[16] + M[17] != 5)
-		{
-			condicion = false;
-		}
-		else if(M[1] + M[6] != 1)
-		{
-			condicion = false;
-		}
-		else if(M[5] + M[6] != 1)
-		{
-			condicion = false;
-		}
-		else if(M[6] + M[11] != 1)
+		else if(M[4] + M[9] != 1)
 		{
 			condicion = false;
 		}

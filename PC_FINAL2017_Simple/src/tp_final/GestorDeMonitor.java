@@ -39,7 +39,7 @@ public class GestorDeMonitor
 			Vc[i] = 0;
 			m[i] = 0;
 		}
-		LogGestorInicio("\n"+rdp.MostrarVe());
+		LogGestorInicio("\n"+rdp.MostrarVe()+"\n"+rdp.MostrarVs());
 	}
 	
 	public RdP getRdP()
@@ -85,7 +85,8 @@ public class GestorDeMonitor
 				
 				if(mIgualA1)
 				{
-					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[12],rdp.getVectorDeEstado()[15]));
+					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]));
+					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "\n");
 					mutex.release();
 					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
 					return;
@@ -97,21 +98,25 @@ public class GestorDeMonitor
 			}
 			else
 			{
+				LogGestorInfo2();
 				MostrarInformacion(false, vectorDeDisparo, nameT, nameH);
+				
 				System.out.println("");
+				
 				mutex.release();				
 				LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT);
+				
 				System.out.println("Libero el monitor. Permisos del monitor: " + mutex.availablePermits());
 				System.out.println("");
 				
 				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");				
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
-				cola.quitar(vectorDeDisparo);
-				System.out.println("Trato de liberar. Permisos del monitor: " + mutex.availablePermits());
+				
 				try 
 				{
 					mutex.acquire();
 					LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
+					cola.quitar(vectorDeDisparo);
 				}
 				catch (InterruptedException e) 
 				{
@@ -120,7 +125,7 @@ public class GestorDeMonitor
 			}
 		}
 		mutex.release();
-		LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
+		LogGestorMutex(".releaseFINAL -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 	}
 	
 	public synchronized int PosicionTransicion(int[] transicion)
@@ -171,11 +176,16 @@ public class GestorDeMonitor
 	
 	public synchronized void LogGestorInfo()
 	{
-		  LogGestor.log(Level.INFO,"Espacio: "+rdp.getVectorDeEstado()[6]+"\nTRANSICION DISPARADA\n"+ this.rdp.MostrarVe() +"\n"+ this.rdp.MostrarVs() +"\n"+ this.cola.MostrarVc());
+		  LogGestor.log(Level.INFO,"TRANSICION DISPARADA\n"+ this.rdp.MostrarVe() +"\n"+ this.rdp.MostrarVs() +"\n"+ this.cola.MostrarVc());
 	}
 	
 	public synchronized void LogGestorInicio(String accion)
 	{
 		  LogGestor.log(Level.INFO,"INICIO" + accion);
+	}
+	
+	public synchronized void LogGestorInfo2()
+	{
+		LogGestor.log(Level.INFO,"DISPARO IMPOSIBLE\n");
 	}
 }

@@ -1,0 +1,451 @@
+10:50:12:699 - INICIO
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:0 - P3:0 - P4:1 - P5:15 - P6:15 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+10:50:12:706 - MUTEX .acquire-> Hilo: H_Suben - Transicion: T9
+10:50:13:672 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:0 - P3:0 - P4:1 - P5:14 - P6:15 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:1 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 0 - T3: 0 - T4: 0 - T5: 0 - T6: 1 - T7: 0 - T8: 1 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   0   0   0   0   0   0   0   0   0   0   
+------------------------
+10:50:13:675 - MUTEX .release -> Hilo: H_Suben - Transicion: T9
+
+10:50:13:676 - MUTEX .acquire-> Hilo: H_Tren1 - Transicion: T3
+10:50:13:677 - DISPARO IMPOSIBLE
+
+10:50:13:681 - MUTEX .release -> Hilo: H_Tren1 - Transicion: T3
+10:50:13:682 - COLA .encolo -> HILO: H_Tren1 - TRANSICION: T3
+
+10:50:13:684 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T4
+10:50:13:685 - DISPARO IMPOSIBLE
+
+10:50:13:689 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T4
+10:50:13:690 - COLA .encolo -> HILO: H_Tren2 - TRANSICION: T4
+
+10:50:13:691 - MUTEX .acquire-> Hilo: H_Bajan - Transicion: T10
+10:50:13:692 - DISPARO IMPOSIBLE
+
+10:50:13:696 - MUTEX .release -> Hilo: H_Bajan - Transicion: T10
+10:50:13:697 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
+10:50:13:699 - COLA .encolo -> HILO: H_Bajan - TRANSICION: T10
+
+10:50:14:669 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:14 - P6:14 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:1 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 1 - T7: 0 - T8: 1 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   1   0   0   0   0   0   1   0   0   
+------------------------
+10:50:14:671 - MUTEX .release -> Hilo: H_Auto - Transicion: T12
+
+10:50:14:674 - MUTEX .acquire-> Hilo: H_Suben - Transicion: T6
+10:50:14:677 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:14 - P6:14 - P7:0 - P8:1 - P9:0 - P10:4 - P11:1 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   1   0   0   0   0   0   1   0   0   
+------------------------
+10:50:14:679 - MUTEX .release -> HILO: H_Suben - TRANSICION: T6
+
+10:50:14:681 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T2
+10:50:14:686 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:0 - P3:0 - P4:1 - P5:14 - P6:15 - P7:0 - P8:1 - P9:0 - P10:4 - P11:1 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   0   0   1   0   0   
+------------------------
+10:50:14:687 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+
+10:50:14:689 - MUTEX .acquire-> Hilo: H_Suben - Transicion: T8
+10:50:14:690 - DISPARO IMPOSIBLE
+
+10:50:14:692 - MUTEX .release -> Hilo: H_Suben - Transicion: T8
+10:50:14:692 - COLA .encolo -> HILO: H_Suben - TRANSICION: T8
+
+10:50:14:694 - MUTEX .acquire Hilo liberado: H_Tren2-Trans.: T4
+10:50:14:695 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:0 - P3:0 - P4:1 - P5:14 - P6:15 - P7:1 - P8:0 - P9:0 - P10:4 - P11:1 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 0 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   1   0   0   
+------------------------
+10:50:14:696 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T4
+
+10:50:14:696 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
+10:50:15:696 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:14 - P6:14 - P7:1 - P8:0 - P9:0 - P10:4 - P11:1 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   1   0   0   
+------------------------
+10:50:15:697 - MUTEX .release -> Hilo: H_Auto - Transicion: T12
+
+10:50:15:699 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T0
+10:50:15:704 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:0 - P1:1 - P2:1 - P3:1 - P4:0 - P5:14 - P6:14 - P7:0 - P8:1 - P9:1 - P10:4 - P11:1 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 1 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 1 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   1   0   0   
+------------------------
+10:50:15:712 - MUTEX .release -> HILO: H_Tren2 - TRANSICION: T0
+
+10:50:15:714 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T2
+10:50:15:715 - DISPARO IMPOSIBLE
+
+10:50:15:719 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+10:50:15:721 - MUTEX .acquire Hilo liberado: H_Bajan-Trans.: T10
+10:50:15:722 - COLA .encolo -> HILO: H_Auto - TRANSICION: T2
+
+10:50:15:725 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:0 - P1:1 - P2:1 - P3:1 - P4:0 - P5:14 - P6:14 - P7:0 - P8:1 - P9:1 - P10:4 - P11:0 - P12:1 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 1 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   1   1   0   0   0   0   1   0   0   0   0   
+------------------------
+10:50:15:726 - MUTEX .release -> Hilo: H_Bajan - Transicion: T10
+
+10:50:15:727 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T1
+10:50:16:723 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:14 - P6:14 - P7:0 - P8:1 - P9:0 - P10:4 - P11:0 - P12:1 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 1 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   1   1   0   0   0   0   1   0   0   0   0   
+------------------------
+10:50:16:724 - MUTEX .release -> HILO: H_Tren2 - TRANSICION: T1
+
+10:50:16:726 - MUTEX .acquire-> Hilo: H_Bajan - Transicion: T5
+10:50:16:727 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   0   0   
+------------------------
+10:50:16:728 - MUTEX .release -> Hilo: H_Bajan - Transicion: T5
+
+10:50:16:729 - MUTEX .acquire Hilo liberado: H_Auto-Trans.: T2
+10:50:16:730 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+
+10:50:16:732 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T4
+10:50:16:733 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   0   0   
+------------------------
+10:50:16:734 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T4
+
+10:50:16:736 - MUTEX .acquire-> Hilo: H_Bajan - Transicion: T11
+10:50:16:736 - DISPARO IMPOSIBLE
+
+10:50:16:738 - MUTEX .release -> Hilo: H_Bajan - Transicion: T11
+10:50:16:738 - COLA .encolo -> HILO: H_Bajan - TRANSICION: T11
+
+10:50:16:739 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
+10:50:17:734 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:17:735 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T0
+10:50:17:735 - MUTEX .release -> Hilo: H_Auto - Transicion: T12
+
+10:50:17:737 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:0 - P1:1 - P2:2 - P3:1 - P4:0 - P5:15 - P6:13 - P7:0 - P8:1 - P9:1 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 1 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:17:737 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T0
+
+10:50:17:739 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T2
+10:50:17:739 - DISPARO IMPOSIBLE
+
+10:50:17:741 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+10:50:17:741 - COLA .encolo -> HILO: H_Auto - TRANSICION: T2
+
+10:50:17:742 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T1
+10:50:18:736 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   1   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:18:737 - MUTEX .acquire Hilo liberado: H_Auto-Trans.: T2
+10:50:18:738 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:18:739 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+
+10:50:18:740 - MUTEX .release -> HILO: H_Tren2 - TRANSICION: T1
+
+10:50:18:741 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
+10:50:19:738 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:19:739 - MUTEX .release -> Hilo: H_Auto - Transicion: T12
+
+10:50:19:740 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T4
+10:50:19:741 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:19:742 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T4
+
+10:50:19:743 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T2
+10:50:19:744 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:19:745 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+
+10:50:19:746 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T0
+10:50:19:747 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:0 - P1:1 - P2:1 - P3:1 - P4:0 - P5:15 - P6:14 - P7:0 - P8:1 - P9:1 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 1 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:19:749 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T0
+
+10:50:19:750 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
+10:50:20:748 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:0 - P1:1 - P2:2 - P3:1 - P4:0 - P5:15 - P6:13 - P7:0 - P8:1 - P9:1 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 1 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:20:749 - MUTEX .release -> Hilo: H_Auto - Transicion: T12
+
+10:50:20:750 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T1
+10:50:21:747 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:21:748 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T1
+
+10:50:21:749 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T2
+10:50:21:751 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:21:752 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+
+10:50:21:753 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T4
+10:50:21:754 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:21:756 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T4
+
+10:50:21:757 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
+10:50:22:755 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:22:756 - MUTEX .release -> Hilo: H_Auto - Transicion: T12
+
+10:50:22:757 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T0
+10:50:22:759 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:0 - P1:1 - P2:2 - P3:1 - P4:0 - P5:15 - P6:13 - P7:0 - P8:1 - P9:1 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 1 - T2: 0 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:22:760 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T0
+
+10:50:22:760 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T2
+10:50:22:761 - DISPARO IMPOSIBLE
+
+10:50:22:762 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+10:50:22:763 - COLA .encolo -> HILO: H_Auto - TRANSICION: T2
+
+10:50:22:764 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T1
+10:50:23:758 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:2 - P3:0 - P4:1 - P5:15 - P6:13 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   1   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:23:759 - MUTEX .release -> HILO: H_Tren2 - TRANSICION: T1
+
+10:50:23:761 - MUTEX .acquire Hilo liberado: H_Auto-Trans.: T2
+10:50:23:762 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:0 - P8:1 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 0 - T1: 0 - T2: 1 - T3: 0 - T4: 1 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:23:763 - MUTEX .release -> Hilo: H_Auto - Transicion: T2
+
+10:50:23:764 - MUTEX .acquire-> Hilo: H_Tren2 - Transicion: T4
+10:50:23:765 - TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0:1 - P1:0 - P2:1 - P3:0 - P4:1 - P5:15 - P6:14 - P7:1 - P8:0 - P9:0 - P10:5 - P11:0 - P12:0 - P13:5 - P14:0 - P15:0 - P16:0 - 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0: 1 - T1: 0 - T2: 1 - T3: 0 - T4: 0 - T5: 0 - T6: 0 - T7: 0 - T8: 0 - T9: 1 - T10: 0 - T11: 0 - T12: 1 - 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  T4  T5  T6  T7  T8  T9  T10  T11  T12  
+0   0   0   1   0   0   0   0   1   0   0   1   0   
+------------------------
+10:50:23:766 - MUTEX .release -> Hilo: H_Tren2 - Transicion: T4
+
+10:50:23:766 - MUTEX .acquire-> Hilo: H_Auto - Transicion: T12
