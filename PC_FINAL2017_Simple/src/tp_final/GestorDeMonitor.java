@@ -86,8 +86,8 @@ public class GestorDeMonitor
 				if(mIgualA1)
 				{
 					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]));
-					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "\n");
 					mutex.release();
+					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "\n");
 					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
 					return;
 				}
@@ -111,17 +111,17 @@ public class GestorDeMonitor
 				
 				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");				
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
-				
 				try 
 				{
 					mutex.acquire();
 					LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
-					cola.quitar(vectorDeDisparo);
+					
 				}
 				catch (InterruptedException e) 
 				{
 					e.printStackTrace();
 				}
+				cola.quitar(vectorDeDisparo);				
 			}
 		}
 		mutex.release();

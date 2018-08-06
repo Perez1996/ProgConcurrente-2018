@@ -25,12 +25,12 @@ public class ColaDeSemaforos
 			colaDeTransiciones[i] = 0;
 		}
 	}
-	
+	/*
 	public Semaphore[] getColaSemaforo()
 	{
 		return colaDeSemaforos;
 	}
-	
+	*/
 	public String getVecName(int posicion)
 	{
 		return vecName[posicion];
@@ -139,5 +139,19 @@ public class ColaDeSemaforos
 		vector1 += vector2 += "\n";
 		vector1 += "------------------------";
 		return vector1 ;
+	}
+	
+	public boolean esVacia()
+	{
+		boolean respuesta = true;
+		for(int i=0; i<colaDeTransiciones.length; i++)
+		{
+			if(colaDeTransiciones[i] == 1)
+			{
+				respuesta = false;
+				break;
+			}
+		}
+		return respuesta;
 	}
 }
