@@ -12,7 +12,7 @@ public class Politicas
 		int candidato = -1;
 		int posicion = 0;		
 
-		if((trenL+vagonL) >=4 || (trenL+vagonL) <=6) 
+		if((trenL+vagonL) >=4 && (trenL+vagonL) <=6) 
 		{
 			llenarVector(prioridadIgualada); 
 		}

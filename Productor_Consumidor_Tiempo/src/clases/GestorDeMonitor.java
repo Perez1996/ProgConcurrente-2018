@@ -52,12 +52,12 @@ public class GestorDeMonitor
 		try 
 		{
 			mutex.acquire();
-			LogGestorMutex(".acquire-> Hilo: "+ nameH + " - Transicion: "+ nameT);
 		}
 		catch (InterruptedException e) 
 		{
 			e.printStackTrace();
 		}
+		LogGestorMutex(".acquire(INICIO)-> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 		System.out.println("Cola de monitor: " + mutex.getQueueLength());
 		k=true;
 		
@@ -86,8 +86,8 @@ public class GestorDeMonitor
 				if(mIgualA1)
 				{
 					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[6]));
-					mutex.release();
 					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
+					mutex.release();
 					return;
 				}
 				else
@@ -99,28 +99,27 @@ public class GestorDeMonitor
 			{
 				MostrarInformacion(false, vectorDeDisparo, nameT, nameH);
 				System.out.println("");
+				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
+				LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 				mutex.release();				
-				LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT);
 				System.out.println("Libero el monitor. Permisos del monitor: " + mutex.availablePermits());
 				System.out.println("");
-				
-				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");				
+								
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
-				cola.quitar(vectorDeDisparo);
-				System.out.println("Trato de liberar. Permisos del monitor: " + mutex.availablePermits());
 				try 
 				{
 					mutex.acquire();
-					LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
+					LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT + "\n");
 				}
 				catch (InterruptedException e) 
 				{
 					e.printStackTrace();
 				}
+				cola.quitar(vectorDeDisparo);
 			}
 		}
+		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 		mutex.release();
-		LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 	}
 	
 	public synchronized int PosicionTransicion(int[] transicion)
@@ -171,11 +170,11 @@ public class GestorDeMonitor
 	
 	public synchronized void LogGestorInfo()
 	{
-		  LogGestor.log(Level.INFO,"Espacio: "+rdp.getVectorDeEstado()[6]+"\nTRANSICION DISPARADA\n"+ this.rdp.MostrarVe() +"\n"+ this.rdp.MostrarVs() +"\n"+ this.cola.MostrarVc());
+		  LogGestor.log(Level.INFO,"Espacio: "+rdp.getVectorDeEstado()[6]+"\nTRANSICION DISPARADA\n"+ this.rdp.MostrarVe() +"\n"+ this.rdp.MostrarVs() +"\n"+ this.cola.MostrarVc() + "\n");
 	}
 	
 	public synchronized void LogGestorInicio(String accion)
 	{
-		  LogGestor.log(Level.INFO,"INICIO" + accion);
+		  LogGestor.log(Level.INFO,"INICIO" + accion + "\n");
 	}
 }

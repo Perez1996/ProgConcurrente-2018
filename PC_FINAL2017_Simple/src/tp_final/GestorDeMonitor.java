@@ -1,10 +1,7 @@
 package tp_final;
 
 import java.io.FileNotFoundException;
-//import java.util.concurrent.locks.Condition;
 import java.util.concurrent.Semaphore;
-//import java.util.concurrent.locks.Lock;
-//import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +17,7 @@ public class GestorDeMonitor
 	private int[] Vc;
 	private int[] m;
 	private final static Logger LogGestor = Logger.getLogger("loger.clases.GestorDeMonitor");
+	private boolean hiloDespertado;
 	
 	public GestorDeMonitor() throws FileNotFoundException
 	{
@@ -32,6 +30,7 @@ public class GestorDeMonitor
 		Vs = new int[RdP.getColumna()];
 		Vc = new int[RdP.getColumna()];
 		m = new int[RdP.getColumna()];
+		hiloDespertado = false;
 		
 		for(int i=0;i<RdP.getColumna();i++)
 		{
@@ -52,13 +51,21 @@ public class GestorDeMonitor
 		try 
 		{
 			mutex.acquire();
-			LogGestorMutex(".acquire-> Hilo: "+ nameH + " - Transicion: "+ nameT);
 		}
 		catch (InterruptedException e) 
 		{
 			e.printStackTrace();
 		}
+		/*
+		if(hiloDespertado)
+		{
+			mutex.release();
+			return;
+		}
+		*/
+		LogGestorMutex(".acquire(INICIO)-> Hilo: "+ nameH + " - Transicion: "+ nameT);
 		System.out.println("Cola de monitor: " + mutex.getQueueLength());
+		
 		k=true;
 		
 		while(k)
@@ -86,9 +93,10 @@ public class GestorDeMonitor
 				if(mIgualA1)
 				{
 					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]));
-					mutex.release();
-					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "\n");
+					hiloDespertado = true;
+					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "hiloDespertado: "+ hiloDespertado + "\n");
 					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
+					mutex.release();
 					return;
 				}
 				else
@@ -103,29 +111,31 @@ public class GestorDeMonitor
 				
 				System.out.println("");
 				
-				mutex.release();				
+				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
 				LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT);
+				mutex.release();				
 				
 				System.out.println("Libero el monitor. Permisos del monitor: " + mutex.availablePermits());
 				System.out.println("");
-				
-				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");				
+								
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
 				try 
 				{
-					mutex.acquire();
-					LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
-					
+					mutex.acquire();					
 				}
 				catch (InterruptedException e) 
 				{
 					e.printStackTrace();
 				}
-				cola.quitar(vectorDeDisparo);				
+				cola.quitar(vectorDeDisparo);
+				hiloDespertado = false;
+				
+				LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
+				LogGestorColas("hiloDespertado: "+ hiloDespertado + "\n");
 			}
 		}
+		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 		mutex.release();
-		LogGestorMutex(".releaseFINAL -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 	}
 	
 	public synchronized int PosicionTransicion(int[] transicion)
