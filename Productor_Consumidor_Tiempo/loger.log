@@ -1,13 +1,13 @@
-02:18:08:327 - INICIO
+06:30:30:961 - INICIO
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
 1   0   1   0   1   0   10   
 ------------------------ 
 
 
-02:18:08:343 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
+06:30:30:990 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
 
-02:18:08:343 - Espacio: 9
+06:30:30:992 - Espacio: 9
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -24,29 +24,29 @@ T0  T1  T2  T3
 0   0   0   0   
 ------------------------
 
-02:18:08:343 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
+06:30:30:993 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
 
-02:18:08:343 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+06:30:30:994 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
 
-02:18:08:343 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T0
+06:30:30:995 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
 
-02:18:08:343 - MUTEX .release -> Hilo: Pr[2] - Transicion: T0
+06:30:30:996 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
 
-02:18:08:343 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T2
+06:30:30:997 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T2
 
-02:18:08:343 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T2
+06:30:30:998 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T2
 
-02:18:08:343 - MUTEX .release -> Hilo: Cn[2] - Transicion: T2
+06:30:30:999 - MUTEX .release -> Hilo: Cn[1] - Transicion: T2
 
-02:18:08:343 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T2
+06:30:30:999 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T2
 
-02:18:08:359 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T2
+06:30:31:001 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T2
 
-02:18:08:359 - MUTEX .release -> Hilo: Cn[1] - Transicion: T2
+06:30:31:001 - MUTEX .release -> Hilo: Cn[2] - Transicion: T2
 
-02:18:08:608 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
+06:30:31:244 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
 
-02:18:09:346 - Espacio: 9
+06:30:31:994 - Espacio: 9
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -63,11 +63,11 @@ T0  T1  T2  T3
 1   0   2   0   
 ------------------------
 
-02:18:09:346 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
+06:30:31:995 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
 
-02:18:09:346 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T0
+06:30:31:997 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
 
-02:18:09:346 - Espacio: 8
+06:30:32:000 - Espacio: 8
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -84,11 +84,17 @@ T0  T1  T2  T3
 0   0   2   0   
 ------------------------
 
-02:18:09:346 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+06:30:32:004 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
 
-02:18:09:598 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+06:30:32:497 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
 
-02:18:10:347 - Espacio: 8
+06:30:32:499 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T0
+
+06:30:32:500 - MUTEX .release -> Hilo: Pr[2] - Transicion: T0
+
+06:30:32:747 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
+
+06:30:32:999 - Espacio: 8
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -102,14 +108,14 @@ T0  T1  T2  T3
 
 VECTOR DE COLA: 
 T0  T1  T2  T3  
-0   0   2   0   
+1   0   2   0   
 ------------------------
 
-02:18:10:348 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
+06:30:33:000 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
 
-02:18:10:348 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
+06:30:33:001 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T0
 
-02:18:10:348 - Espacio: 7
+06:30:33:002 - Espacio: 7
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -126,27 +132,17 @@ T0  T1  T2  T3
 0   0   2   0   
 ------------------------
 
-02:18:10:348 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
+06:30:33:002 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
 
-02:18:10:348 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T2
+06:30:33:501 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
 
-02:18:10:348 - MUTEX .release(FINAL) -> Hilo: Cn[2] - Transicion: T2
+06:30:33:502 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
 
-02:18:10:851 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+06:30:33:503 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
 
-02:18:10:851 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T0
+06:30:33:751 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
 
-02:18:10:851 - MUTEX .release -> Hilo: Pr[2] - Transicion: T0
-
-02:18:11:116 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T3
-
-02:18:11:116 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T3
-
-02:18:11:116 - MUTEX .release -> Hilo: Cn[2] - Transicion: T3
-
-02:18:11:381 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
-
-02:18:11:381 - Espacio: 7
+06:30:34:004 - Espacio: 7
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -160,14 +156,14 @@ T0  T1  T2  T3
 
 VECTOR DE COLA: 
 T0  T1  T2  T3  
-1   0   1   1   
+1   0   2   0   
 ------------------------
 
-02:18:11:381 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
+06:30:34:005 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
 
-02:18:11:381 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T0
+06:30:34:007 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
 
-02:18:11:381 - Espacio: 6
+06:30:34:010 - Espacio: 6
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -181,20 +177,14 @@ T0  T1  T2  T3
 
 VECTOR DE COLA: 
 T0  T1  T2  T3  
-0   0   1   1   
+0   0   2   0   
 ------------------------
 
-02:18:11:381 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+06:30:34:012 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
 
-02:18:11:882 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
+06:30:34:264 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
 
-02:18:11:882 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
-
-02:18:11:882 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
-
-02:18:12:147 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
-
-02:18:12:384 - Espacio: 6
+06:30:35:010 - Espacio: 6
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -208,14 +198,14 @@ T0  T1  T2  T3
 
 VECTOR DE COLA: 
 T0  T1  T2  T3  
-1   0   1   1   
+0   0   2   0   
 ------------------------
 
-02:18:12:384 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
+06:30:35:011 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
 
-02:18:12:384 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
+06:30:35:013 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
 
-02:18:12:384 - Espacio: 5
+06:30:35:015 - Espacio: 5
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -229,20 +219,30 @@ T0  T1  T2  T3
 
 VECTOR DE COLA: 
 T0  T1  T2  T3  
-0   0   1   1   
+0   0   2   0   
 ------------------------
 
-02:18:12:384 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
+06:30:35:016 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
 
-02:18:12:887 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+06:30:35:018 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T2
 
-02:18:12:887 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T0
+06:30:35:019 - MUTEX .release(FINAL) -> Hilo: Cn[1] - Transicion: T2
 
-02:18:12:887 - MUTEX .release -> Hilo: Pr[2] - Transicion: T0
+06:30:35:514 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
 
-02:18:13:152 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
+06:30:35:516 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
 
-02:18:13:385 - Espacio: 5
+06:30:35:517 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
+
+06:30:35:764 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T3
+
+06:30:35:766 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T3
+
+06:30:35:767 - MUTEX .release -> Hilo: Cn[1] - Transicion: T3
+
+06:30:36:015 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+
+06:30:36:017 - Espacio: 5
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -259,11 +259,11 @@ T0  T1  T2  T3
 1   0   1   1   
 ------------------------
 
-02:18:13:386 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
+06:30:36:020 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
 
-02:18:13:386 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T0
+06:30:36:021 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
 
-02:18:13:386 - Espacio: 4
+06:30:36:024 - Espacio: 4
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -280,17 +280,17 @@ T0  T1  T2  T3
 0   0   1   1   
 ------------------------
 
-02:18:13:386 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+06:30:36:025 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
 
-02:18:13:888 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
+06:30:36:522 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
 
-02:18:13:888 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
+06:30:36:524 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T0
 
-02:18:13:888 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
+06:30:36:526 - MUTEX .release -> Hilo: Pr[2] - Transicion: T0
 
-02:18:14:154 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+06:30:36:772 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
 
-02:18:14:387 - Espacio: 4
+06:30:37:024 - Espacio: 4
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -307,11 +307,11 @@ T0  T1  T2  T3
 1   0   1   1   
 ------------------------
 
-02:18:14:388 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
+06:30:37:025 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
 
-02:18:14:389 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
+06:30:37:026 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T0
 
-02:18:14:389 - Espacio: 3
+06:30:37:028 - Espacio: 3
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -328,17 +328,17 @@ T0  T1  T2  T3
 0   0   1   1   
 ------------------------
 
-02:18:14:389 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
+06:30:37:029 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
 
-02:18:14:889 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+06:30:37:526 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
 
-02:18:14:889 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T0
+06:30:37:528 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
 
-02:18:14:889 - MUTEX .release -> Hilo: Pr[2] - Transicion: T0
+06:30:37:529 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
 
-02:18:15:154 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
+06:30:37:776 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
 
-02:18:15:452 - Espacio: 3
+06:30:38:035 - Espacio: 3
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -355,11 +355,11 @@ T0  T1  T2  T3
 1   0   1   1   
 ------------------------
 
-02:18:15:452 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
+06:30:38:037 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
 
-02:18:15:452 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T2
+06:30:38:038 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T2
 
-02:18:15:452 - Espacio: 3
+06:30:38:040 - Espacio: 3
 TRANSICION DISPARADA
 VECTOR DE ESTADO: 
 P0  P1  P2  P3  Mx  Bf  Lm  
@@ -376,7 +376,659 @@ T0  T1  T2  T3
 1   0   0   1   
 ------------------------
 
-02:18:15:452 - MUTEX .release -> HILO: Cn[1] - TRANSICION: T2
+06:30:38:041 - MUTEX .release -> HILO: Cn[2] - TRANSICION: T2
 
-02:18:15:452 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T3
+06:30:38:042 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T3
+
+06:30:39:040 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:39:041 - MUTEX .release -> HILO: Cn[1] - TRANSICION: T3
+
+06:30:39:042 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+
+06:30:39:043 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:39:044 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+
+06:30:39:045 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T3
+
+06:30:39:047 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T3
+
+06:30:39:047 - MUTEX .release -> Hilo: Cn[2] - Transicion: T3
+
+06:30:39:049 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
+
+06:30:39:050 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
+
+06:30:39:051 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
+
+06:30:39:541 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T2
+
+06:30:39:542 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T2
+
+06:30:39:543 - MUTEX .release -> Hilo: Cn[1] - Transicion: T2
+
+06:30:39:791 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+
+06:30:40:044 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   7   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   1   1   
+------------------------
+
+06:30:40:046 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
+
+06:30:40:046 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T2
+
+06:30:40:048 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   0   1   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   1   
+------------------------
+
+06:30:40:049 - MUTEX .release -> HILO: Cn[1] - TRANSICION: T2
+
+06:30:40:050 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T3
+
+06:30:41:048 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:41:050 - MUTEX .release -> HILO: Cn[2] - TRANSICION: T3
+
+06:30:41:051 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+
+06:30:41:052 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:41:053 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+
+06:30:41:054 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T3
+
+06:30:41:055 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T3
+
+06:30:41:055 - MUTEX .release -> Hilo: Cn[1] - Transicion: T3
+
+06:30:41:056 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
+
+06:30:41:057 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
+
+06:30:41:057 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
+
+06:30:41:551 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T2
+
+06:30:41:552 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T2
+
+06:30:41:552 - MUTEX .release -> Hilo: Cn[2] - Transicion: T2
+
+06:30:41:801 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+
+06:30:42:053 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   7   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   1   1   
+------------------------
+
+06:30:42:054 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
+
+06:30:42:055 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T2
+
+06:30:42:056 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   0   1   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   1   
+------------------------
+
+06:30:42:056 - MUTEX .release -> HILO: Cn[2] - TRANSICION: T2
+
+06:30:42:057 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T3
+
+06:30:43:057 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:43:058 - MUTEX .release -> HILO: Cn[1] - TRANSICION: T3
+
+06:30:43:059 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+
+06:30:43:059 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:43:060 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+
+06:30:43:060 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T3
+
+06:30:43:061 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T3
+
+06:30:43:062 - MUTEX .release -> Hilo: Cn[2] - Transicion: T3
+
+06:30:43:062 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
+
+06:30:43:063 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T0
+
+06:30:43:068 - MUTEX .release -> Hilo: Pr[1] - Transicion: T0
+
+06:30:43:559 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T2
+
+06:30:43:560 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T2
+
+06:30:43:560 - MUTEX .release -> Hilo: Cn[1] - Transicion: T2
+
+06:30:43:809 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+
+06:30:44:059 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   7   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   1   1   
+------------------------
+
+06:30:44:060 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T1
+
+06:30:44:060 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T2
+
+06:30:44:061 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   0   1   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   1   
+------------------------
+
+06:30:44:062 - MUTEX .release -> HILO: Cn[1] - TRANSICION: T2
+
+06:30:44:062 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T3
+
+06:30:45:061 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   0   
+------------------------
+
+06:30:45:062 - MUTEX .release -> HILO: Cn[2] - TRANSICION: T3
+
+06:30:45:062 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T3
+
+06:30:45:063 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T3
+
+06:30:45:063 - MUTEX .release -> Hilo: Cn[1] - Transicion: T3
+
+06:30:45:064 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+
+06:30:45:065 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+1   0   0   1   
+------------------------
+
+06:30:45:066 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T0
+
+06:30:45:066 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T0
+
+06:30:45:067 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T0
+
+06:30:45:562 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T2
+
+06:30:45:563 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T2
+
+06:30:45:563 - MUTEX .release -> Hilo: Cn[2] - Transicion: T2
+
+06:30:45:813 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
+
+06:30:46:065 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   7   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   0   1   1   
+------------------------
+
+06:30:46:066 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T1
+
+06:30:46:066 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+
+06:30:46:067 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T1
+
+06:30:46:068 - MUTEX .release -> Hilo: Pr[2] - Transicion: T1
+
+06:30:46:068 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T2
+
+06:30:46:069 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   0   1   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   1   
+------------------------
+
+06:30:46:070 - MUTEX .release -> HILO: Cn[2] - TRANSICION: T2
+
+06:30:46:070 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T3
+
+06:30:47:070 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------
+
+06:30:47:071 - MUTEX .release(FINAL) -> Hilo: Cn[1] - Transicion: T3
+
+06:30:47:072 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
+
+06:30:47:072 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------
+
+06:30:47:073 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T0
+
+06:30:47:073 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T3
+
+06:30:47:074 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T3
+
+06:30:47:074 - MUTEX .release -> Hilo: Cn[2] - Transicion: T3
+
+06:30:47:075 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T1
+
+06:30:48:072 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   7   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------
+
+06:30:48:074 - MUTEX .release(FINAL) -> Hilo: Pr[2] - Transicion: T1
+
+06:30:48:075 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T2
+
+06:30:48:076 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   0   1   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------
+
+06:30:48:076 - MUTEX .release -> HILO: Cn[1] - TRANSICION: T2
+
+06:30:48:081 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T1
+
+06:30:48:081 - COLA .encolo -> HILO: Pr[1] - TRANSICION: T1
+
+06:30:48:082 - MUTEX .release -> Hilo: Pr[1] - Transicion: T1
+
+06:30:48:083 - MUTEX .acquire Hilo liberado: Cn[2]-Trans.: T3
+
+06:30:49:075 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------
+
+06:30:49:076 - MUTEX .release(FINAL) -> Hilo: Cn[2] - Transicion: T3
+
+06:30:49:077 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T0
+
+06:30:49:077 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------
+
+06:30:49:078 - MUTEX .release -> HILO: Pr[2] - TRANSICION: T0
+
+06:30:49:078 - MUTEX .acquire(INICIO)-> Hilo: Cn[1] - Transicion: T3
+
+06:30:49:079 - COLA .encolo -> HILO: Cn[1] - TRANSICION: T3
+
+06:30:49:079 - MUTEX .release -> Hilo: Cn[1] - Transicion: T3
+
+06:30:49:080 - MUTEX .acquire Hilo liberado: Pr[1]-Trans.: T1
+
+06:30:50:077 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   7   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------
+
+06:30:50:078 - MUTEX .release(FINAL) -> Hilo: Pr[1] - Transicion: T1
+
+06:30:50:078 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T2
+
+06:30:50:079 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   0   1   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   0   0   1   
+------------------------
+
+06:30:50:079 - MUTEX .release -> HILO: Cn[2] - TRANSICION: T2
+
+06:30:50:080 - MUTEX .acquire(INICIO)-> Hilo: Pr[2] - Transicion: T1
+
+06:30:50:081 - COLA .encolo -> HILO: Pr[2] - TRANSICION: T1
+
+06:30:50:081 - MUTEX .release -> Hilo: Pr[2] - Transicion: T1
+
+06:30:50:082 - MUTEX .acquire Hilo liberado: Cn[1]-Trans.: T3
+
+06:30:51:079 - Espacio: 4
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+1   0   1   0   1   6   4   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+1   0   1   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------
+
+06:30:51:080 - MUTEX .release(FINAL) -> Hilo: Cn[1] - Transicion: T3
+
+06:30:51:080 - MUTEX .acquire(INICIO)-> Hilo: Pr[1] - Transicion: T0
+
+06:30:51:081 - Espacio: 3
+TRANSICION DISPARADA
+VECTOR DE ESTADO: 
+P0  P1  P2  P3  Mx  Bf  Lm  
+0   1   1   0   0   6   3   
+------------------------ 
+
+VECTOR DE TRANSICIONES SENSIBILIZADAS: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------ 
+
+VECTOR DE COLA: 
+T0  T1  T2  T3  
+0   1   0   0   
+------------------------
+
+06:30:51:081 - MUTEX .release -> HILO: Pr[1] - TRANSICION: T0
+
+06:30:51:082 - MUTEX .acquire(INICIO)-> Hilo: Cn[2] - Transicion: T3
+
+06:30:51:084 - COLA .encolo -> HILO: Cn[2] - TRANSICION: T3
+
+06:30:51:085 - MUTEX .release -> Hilo: Cn[2] - Transicion: T3
+
+06:30:51:085 - MUTEX .acquire Hilo liberado: Pr[2]-Trans.: T1
 

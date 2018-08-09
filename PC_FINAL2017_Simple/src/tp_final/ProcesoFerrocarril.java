@@ -18,7 +18,7 @@ public class ProcesoFerrocarril extends Thread
 	private int[] t10 = {0,0,0,0,0,0,0,0,0,0,1,0,0};
 	private int[] t11 = {0,0,0,0,0,0,0,0,0,0,0,1,0};
 	private int[] t12 = {0,0,0,0,0,0,0,0,0,0,0,0,1};
-
+	
 	public ProcesoFerrocarril(GestorDeMonitor monitor, String nombreHilo)
 	{
 		this.monitor = monitor;
@@ -29,7 +29,6 @@ public class ProcesoFerrocarril extends Thread
 	{
 		while(true)
 		{
-			
 			if(nombreHilo == "Personas")
 			{
 				monitor.dispararTransicion(t9, "T9", "Personas");
@@ -44,9 +43,9 @@ public class ProcesoFerrocarril extends Thread
 			
 			if(nombreHilo == "Vagon")
 			{
-				monitor.dispararTransicion(t8, "T8", "Vagon");
-				monitor.dispararTransicion(t11, "T11", "Vagon");
-				monitor.dispararTransicion(t7, "T7", "Vagon");
+				monitor.dispararTransicion(t8, "T8", "Vagon"); 
+				monitor.dispararTransicion(t11, "T11", "Vagon"); 
+				monitor.dispararTransicion(t7, "T7", "Vagon"); 
 			}
 			
 			if(nombreHilo == "NoGente")
@@ -57,7 +56,7 @@ public class ProcesoFerrocarril extends Thread
 			if(nombreHilo == "Arranque")
 			{
 				monitor.dispararTransicion(t0, "T0", "Arranque");
-				monitor.dispararTransicion(t1, "T1", "Arranque");
+				monitor.dispararTransicion(t1, "T1", "Arranque"); 
 			}
 			
 			if(nombreHilo == "NoLugar")
@@ -67,8 +66,8 @@ public class ProcesoFerrocarril extends Thread
 			
 			if(nombreHilo == "Autos")
 			{
-				monitor.dispararTransicion(t12, "T12", "Autos");
-				monitor.dispararTransicion(t2, "T2", "Autos");
+				monitor.dispararTransicion(t12, "T12", "Autos"); 
+				monitor.dispararTransicion(t2, "T2", "Autos"); 
 			}
 		}
 	}
