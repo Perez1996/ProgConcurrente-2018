@@ -46,7 +46,7 @@ public class GestorDeMonitor
 		return rdp;
 	}
 	
-	public int dispararTransicion(int[] vectorDeDisparo, String nameT, String nameH)
+	public void dispararTransicion(int[] vectorDeDisparo, String nameT, String nameH)
 	{
 		try 
 		{
@@ -56,13 +56,13 @@ public class GestorDeMonitor
 		{
 			e.printStackTrace();
 		}
-		
+		/*
 		if(hiloDespertado)
 		{
 			mutex.release();
 			return 0;									//RETORNOOOO 0
 		}
-		
+		*/
 		LogGestorMutex(".acquire(INICIO)-> Hilo: "+ nameH + " - Transicion: "+ nameT);
 		System.out.println("Cola de monitor: " + mutex.getQueueLength());
 		
@@ -97,7 +97,7 @@ public class GestorDeMonitor
 					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "hiloDespertado: "+ hiloDespertado + "\n");
 					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
 					mutex.release();
-					return 1;							//RETORNOOOO 1
+					return;							//RETORNOOOO 1
 				}
 				else
 				{
@@ -136,7 +136,7 @@ public class GestorDeMonitor
 		}
 		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
 		mutex.release();
-		return 1;										//RETORNOOOO 1
+		//return 1;										//RETORNOOOO 1
 	}
 	
 	public synchronized int PosicionTransicion(int[] transicion)

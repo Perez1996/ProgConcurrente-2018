@@ -7,6 +7,7 @@ public class RdP
 {
 	private static int fila;
 	private static int columna;
+	int[] multp;
 	private int[][] I;
     private int[][] H;
 	private int[] vectorDeEstado;
@@ -20,7 +21,7 @@ public class RdP
 	private long[] alfa = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	private long[] beta = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	private long[] marcaDeTiempo = {0,0,0,0,0,0,0,0,0,System.currentTimeMillis(),0,0,System.currentTimeMillis()};
-	private boolean estaInhibida = false;
+	private boolean inhibida = false;
 /*
  * Transiciones temporales
  * 
@@ -43,6 +44,7 @@ public class RdP
 	    //Extramos los primeros dos valores de la matriz de Ifile que son el nuermo de filas y el numero de columnas respectivamente.
 	    fila=Ifile.nextInt();
         columna=Ifile.nextInt();    
+        multp = new int[fila];
         
         //Creamo la matriz de Ifile con sus respectivas dimensiones.
         I = new int[fila][columna];
@@ -131,21 +133,21 @@ public class RdP
 	public synchronized boolean disparar(int[] disparo)
 	{
 		this.posible = true;
-		this.estaInhibida = false;
+		this.inhibida = false;
 		int suma = 0;
-		int posicionDeDisparo = 0;
-		int multiplicacion[] = new int [fila]; // getFila() = 7
+		int idShot = 0;
+		
 		
 		for (int i = 0; i<fila; ++i)
 	    {
-	    	multiplicacion[i]=0;
+	    	this.multp[i]=0;
 	    }
 		
 		for(int i=0; i<disparo.length; i++)
 		{
 			if(disparo[i]==1)
 			{
-				posicionDeDisparo = i;
+				idShot = i;
 				break;
 			}
 		}
@@ -153,15 +155,15 @@ public class RdP
 		//*************************************************************************************
 		//Pruebo si la transicion contenida en el vector disparo, que es pasado como paramentro,
 		//esta inhibida.
-	    estaInhibida = verSiEstaInhibida(posicionDeDisparo);
+	    inhibida = estaInhibida(idShot);
 	    
 	    //Si esta inhibida el disparo no es posible. Se retorna false.
-	    if(estaInhibida)
+	    if(inhibida)
 	    {
 	    	return false;
 	    }		
 		
-		if(beta[posicionDeDisparo] == -1)
+		if(beta[idShot] == -1)
 		{
 			esTemporal = false;
 		}
@@ -171,35 +173,13 @@ public class RdP
 			//Si es temporal, como sabemos que al sensibilizarce se empezo a contar un tiempo,
 			//se marca el tiempo en que llego el hilo y luego se hace una diferencia con el tiempo anterior. 
 			//Esto se hace con el fin de probar que el tiempo resultado caiga dentro de la ventana de tiempo.
-			System.out.println("TIEMPO DE CONTEO: " + marcaDeTiempo[posicionDeDisparo] + "\n");
+			System.out.println("TIEMPO DE CONTEO: " + marcaDeTiempo[idShot] + "\n");
 			System.out.println("NUEVA MARCA: " + System.currentTimeMillis() + "\n");
-			marcaDeTiempo[posicionDeDisparo] = System.currentTimeMillis() - marcaDeTiempo[posicionDeDisparo];
-			System.out.println("Marca de tiempo: " + marcaDeTiempo[posicionDeDisparo] + "\n");
+			llegadaTime(idShot);
+			System.out.println("Marca de tiempo: " + marcaDeTiempo[idShot] + "\n");
 		}
 		
-		//Multiplicamos la matriz por el vector de disparo.
-		for(int i=0; i<fila; i++)// 7
-		{
-			for(int k=0;k<columna; k++)// 4
-			{
-				suma = suma + (I[i][k] * disparo[k]);
-				//System.out.println("I"+"["+i+"]"+"["+k+"]: "+I[i][k]);
-				//System.out.println("disparo"+"["+k+"]: "+disparo[k]);
-				//System.out.println("suma: " + suma);
-			}
-			multiplicacion[i] = suma;
-			suma=0;
-		}
-		
-		//Verificamos si es posible el disparo.
-		for(int i=0; i<fila; i++)
-		{
-			// Si algun elemento de la suma entre el marcado y la multiplicacion es -1, el disparo no es posible.
-			if(this.vectorDeEstado[i] + multiplicacion[i] == -1)
-			{
-				this.posible = false;
-			}
-		}
+		estaSensibilizada(suma, disparo);
 		
 		//Si el disparo es posible.
 		if(posible)
@@ -207,78 +187,31 @@ public class RdP
 			//Se verifica si la transicion temporal se sensibilizo dentro del rango del tiempo.
 			if(esTemporal)
 			{
-				aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[posicionDeDisparo], posicionDeDisparo);
+				aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot);
 				while(aTiempo == false)
 				{
 					try 
 					{
-						System.out.println("TIENE QUE DORMIR: " + (alfa[posicionDeDisparo]-marcaDeTiempo[posicionDeDisparo]) + "\n");
-						Thread.sleep((alfa[posicionDeDisparo]-marcaDeTiempo[posicionDeDisparo]));
+						System.out.println("TIENE QUE DORMIR: " + (alfa[idShot]-marcaDeTiempo[idShot]) + "\n");
+						Thread.sleep((alfa[idShot]-marcaDeTiempo[idShot]));
 					} 
 					catch (InterruptedException e) 
 					{
 						e.printStackTrace();
 					}
-					marcaDeTiempo[posicionDeDisparo] += (alfa[posicionDeDisparo]-marcaDeTiempo[posicionDeDisparo]);
-					System.out.println("Marca de tiempo luego de dormir: " + marcaDeTiempo[posicionDeDisparo] + "\n");
-					System.out.println("Afa: " + alfa[posicionDeDisparo] + "\n");
-					aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[posicionDeDisparo], posicionDeDisparo);
+					marcaDeTiempo[idShot] += (alfa[idShot]-marcaDeTiempo[idShot]);
+					System.out.println("Marca de tiempo luego de dormir: " + marcaDeTiempo[idShot] + "\n");
+					System.out.println("Afa: " + alfa[idShot] + "\n");
+					aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot);
 					System.out.println("testVDT: " + aTiempo + "\n");
 				}
 			}
-			
-			//Se actualiza el marcado.
-			for(int i=0; i<fila; i++)
-			{
-				this.vectorDeEstado[i] = this.vectorDeEstado[i] + multiplicacion[i];
-			}
+
+			datosUpdate();
 			
 			//Se realiza el test de invariantes de plazas.
 			test.testIDP(vectorDeEstado);
-			
-			//Se actualiza el vector de transiciones.
-			for(int j=0; j<columna; j++)
-			{
-				for(int i=0; i<fila; i++)
-				{
-					if(I[i][j]==-1)
-					{
-						this.transicionesSesibilizadas[j] = 1;
-						
-						if(this.vectorDeEstado[i]==0) //Si una plaza no tiene un token entonces no esta sensibilizada
-						{
-							this.transicionesSesibilizadas[j] = 0;
-							break;
-						}
-					}
-				}
-			}
-			
-			//Se fija que las nuevas transiciones sensibilizadas no esten inhibidas.
-			for(int q=0; q<transicionesSesibilizadas.length; q++)
-			{
-				if(transicionesSesibilizadas[q] == 1)
-				{
-					if(verSiEstaInhibida(q))
-					{
-						transicionesSesibilizadas[q] = 0;
-					}
-				}
-			}
-			
-			//Seteamos nuevas marcas de tiempos para transiciones temporales sensibilizadas.
-			for(int c = 0; c<transicionesSesibilizadas.length;c++)
-			{
-				if(transicionesSesibilizadas[c] == 1) //Si esta sensibilizada
-				{
-					if(beta[c] != -1)// Si es temporal.
-					{
-						marcaDeTiempo[c] = vdt.setNuevoTimeStamp(); //Establece una marca de tiempo.
-						System.out.println("INICIO DE CONTEO: " + marcaDeTiempo[c] +"\n");
-					}
-				}
-			}
-			
+
 			return true;
 		}
 		else 
@@ -287,7 +220,7 @@ public class RdP
 		}
 	}
 
-	public synchronized boolean verSiEstaInhibida(int test)
+	public synchronized boolean estaInhibida(int test)
 	{
 	    boolean valorRetornado = false;
 	    for (int p=0; p<fila; p++) //Recorre las Filas(Plazas)
@@ -311,6 +244,90 @@ public class RdP
 		return valorRetornado;
 	}
 
+	public synchronized void llegadaTime(int idShot)
+	{
+		marcaDeTiempo[idShot] = System.currentTimeMillis() - marcaDeTiempo[idShot];
+	}
+	
+	public synchronized void estaSensibilizada(int suma, int[] disparo)
+	{
+		//Multiplicamos la matriz por el vector de disparo.
+		for(int i=0; i<fila; i++)// 7
+		{
+			for(int k=0;k<columna; k++)// 4
+			{
+				suma = suma + (I[i][k] * disparo[k]);
+				//System.out.println("I"+"["+i+"]"+"["+k+"]: "+I[i][k]);
+				//System.out.println("disparo"+"["+k+"]: "+disparo[k]);
+				//System.out.println("suma: " + suma);
+			}
+			this.multp[i] = suma;
+			suma=0;
+		}
+		
+		//Verificamos si es posible el disparo.
+		for(int i=0; i<fila; i++)
+		{
+			// Si algun elemento de la suma entre el marcado y la multp es -1, el disparo no es posible.
+			if(this.vectorDeEstado[i] + this.multp[i] == -1)
+			{
+				this.posible = false;
+			}
+		}
+	}
+	
+	public synchronized void datosUpdate()
+	{
+		//Se actualiza el marcado.
+		for(int i=0; i<fila; i++)
+		{
+			this.vectorDeEstado[i] = this.vectorDeEstado[i] + this.multp[i];
+		}
+		
+		//Se actualiza el vector de transiciones.
+		for(int j=0; j<columna; j++)
+		{
+			for(int i=0; i<fila; i++)
+			{
+				if(I[i][j]==-1)
+				{
+					this.transicionesSesibilizadas[j] = 1;
+					
+					if(this.vectorDeEstado[i]==0) //Si una plaza no tiene un token entonces no esta sensibilizada
+					{
+						this.transicionesSesibilizadas[j] = 0;
+						break;
+					}
+				}
+			}
+		}
+		
+		//Se fija que las nuevas transiciones sensibilizadas no esten inhibidas.
+		for(int q=0; q<transicionesSesibilizadas.length; q++)
+		{
+			if(transicionesSesibilizadas[q] == 1)
+			{
+				if(estaInhibida(q))
+				{
+					this.transicionesSesibilizadas[q] = 0;
+				}
+			}
+		}
+		
+		//Seteamos nuevas marcas de tiempos para transiciones temporales sensibilizadas.
+		for(int c = 0; c<transicionesSesibilizadas.length;c++)
+		{
+			if(transicionesSesibilizadas[c] == 1) //Si esta sensibilizada
+			{
+				if(beta[c] != -1)// Si es temporal.
+				{
+					marcaDeTiempo[c] = vdt.setNuevoTimeStamp(); //Establece una marca de tiempo.
+					System.out.println("INICIO DE CONTEO: " + marcaDeTiempo[c] +"\n");
+				}
+			}
+		}
+	}
+	
 	public synchronized void MostrarVectores()
 	{
 		System.out.println("VECTOR DE ESTADO:");
