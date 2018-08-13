@@ -17,7 +17,7 @@ public class GestorDeMonitor
 	private int[] Vc;
 	private int[] m;
 	private final static Logger LogGestor = Logger.getLogger("loger.clases.GestorDeMonitor");
-	private boolean hiloDespertado;
+	//private boolean hiloDespertado;
 	
 	public GestorDeMonitor() throws FileNotFoundException
 	{
@@ -30,7 +30,7 @@ public class GestorDeMonitor
 		Vs = new int[RdP.getColumna()];
 		Vc = new int[RdP.getColumna()];
 		m = new int[RdP.getColumna()];
-		hiloDespertado = false;
+		//hiloDespertado = false;
 		
 		for(int i=0;i<RdP.getColumna();i++)
 		{
@@ -93,8 +93,8 @@ public class GestorDeMonitor
 				if(mIgualA1)
 				{
 					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]));
-					hiloDespertado = true;
-					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]) + "hiloDespertado: "+ hiloDespertado + "\n");
+					//hiloDespertado = true;
+					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13])+"\n");
 					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
 					mutex.release();
 					return;							//RETORNOOOO 1
@@ -128,10 +128,10 @@ public class GestorDeMonitor
 					e.printStackTrace();
 				}
 				cola.quitar(vectorDeDisparo);
-				hiloDespertado = false;
+				//hiloDespertado = false;
 				
 				LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
-				LogGestorColas("hiloDespertado: "+ hiloDespertado + "\n");
+				//LogGestorColas("hiloDespertado: "+ hiloDespertado + "\n");
 			}
 		}
 		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");

@@ -7,7 +7,7 @@ public class RdP
 {
 	private static int fila;
 	private static int columna;
-	int[] multp;
+	int[] multp;//new
 	private int[][] I;
     private int[][] H;
 	private int[] vectorDeEstado;
@@ -21,7 +21,7 @@ public class RdP
 	private long[] alfa = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	private long[] beta = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	private long[] marcaDeTiempo = {0,0,0,0,0,0,0,0,0,System.currentTimeMillis(),0,0,System.currentTimeMillis()};
-	private boolean inhibida = false;
+	private boolean inhibida = false;//new
 /*
  * Transiciones temporales
  * 

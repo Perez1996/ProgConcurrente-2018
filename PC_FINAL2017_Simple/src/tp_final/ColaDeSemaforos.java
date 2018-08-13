@@ -140,7 +140,7 @@ public class ColaDeSemaforos
 		vector1 += "------------------------";
 		return vector1 ;
 	}
-	
+	/*
 	public boolean esVacia()
 	{
 		boolean respuesta = true;
@@ -154,4 +154,5 @@ public class ColaDeSemaforos
 		}
 		return respuesta;
 	}
+	*/
 }
