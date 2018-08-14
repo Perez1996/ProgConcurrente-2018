@@ -32,6 +32,7 @@ public class RdP
 	private String vector1 = "";
 	private String vector2 = "";
 	private String vector3 = "";
+	private String vector4 = "";
 	
 	public RdP() throws FileNotFoundException
 	{
@@ -362,14 +363,44 @@ public class RdP
 	public synchronized String MostrarVe()
 	{
 		vector1 = "";
+		vector4 = "";
 		
 		vector1+="VECTOR DE ESTADO: \n";
 		
 		for(int i=0; i<Plazas.length; i++)
 		{
-			vector1+= Plazas[i]+":"+vectorDeEstado[i]+" - ";
+			vector1+= Plazas[i]+"  ";
 		}
 		vector1+="\n";
+		
+		for(int i=0; i<vectorDeEstado.length; i++)
+		{
+			if(i<=10)
+			{
+				if(vectorDeEstado[i]<=9)
+				{
+					vector4+= vectorDeEstado[i] +"   ";
+				}
+				else
+				{
+					vector4+= vectorDeEstado[i] +"  ";
+				}
+			}
+			else
+			{
+				if(vectorDeEstado[i]<=9)
+				{
+					vector4+= " "+vectorDeEstado[i] +"   ";
+				}
+				else
+				{
+					vector4+= " "+vectorDeEstado[i] +"  ";
+				}
+				
+			}
+		}
+		vector1+= vector4 +="\n";
+		vector1+= "------------------------ \n";
 		
 		return vector1;
 	}
@@ -389,7 +420,14 @@ public class RdP
 		
 		for(int i=0; i<transicionesSesibilizadas.length; i++)
 		{
-			vector3+= transicionesSesibilizadas[i]+"   ";
+			if(i<=10)
+			{
+				vector3+= transicionesSesibilizadas[i]+"   ";
+			}
+			else
+			{
+				vector3+= " "+transicionesSesibilizadas[i]+"   ";
+			}
 		}
 		vector2+= vector3 +="\n";
 		vector2 += "------------------------ \n";

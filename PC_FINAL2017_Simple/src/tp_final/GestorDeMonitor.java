@@ -17,7 +17,7 @@ public class GestorDeMonitor
 	private int[] Vc;
 	private int[] m;
 	private final static Logger LogGestor = Logger.getLogger("loger.clases.GestorDeMonitor");
-	//private boolean hiloDespertado;
+
 	
 	public GestorDeMonitor() throws FileNotFoundException
 	{
@@ -30,7 +30,6 @@ public class GestorDeMonitor
 		Vs = new int[RdP.getColumna()];
 		Vc = new int[RdP.getColumna()];
 		m = new int[RdP.getColumna()];
-		//hiloDespertado = false;
 		
 		for(int i=0;i<RdP.getColumna();i++)
 		{
@@ -56,14 +55,8 @@ public class GestorDeMonitor
 		{
 			e.printStackTrace();
 		}
-		/*
-		if(hiloDespertado)
-		{
-			mutex.release();
-			return 0;									//RETORNOOOO 0
-		}
-		*/
-		LogGestorMutex(".acquire(INICIO)-> Hilo: "+ nameH + " - Transicion: "+ nameT);
+		
+		LogGestorMutex(".acquire-> Hilo: "+ nameH + " - Tr: "+ nameT);
 		System.out.println("Cola de monitor: " + mutex.getQueueLength());
 		
 		k=true;
@@ -93,11 +86,8 @@ public class GestorDeMonitor
 				if(mIgualA1)
 				{
 					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]));
-					//hiloDespertado = true;
-					LogGestorColas(".DESPIERTO -> TRANSICION: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13])+"\n");
-					LogGestorMutex(".release -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
-					mutex.release();
-					return;							//RETORNOOOO 1
+					LogGestorColas(".DESPIERTO -> Transicion: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13])+"\n");
+					return;
 				}
 				else
 				{
@@ -111,32 +101,22 @@ public class GestorDeMonitor
 				
 				System.out.println("");
 				
-				LogGestorColas(".encolo -> HILO: "+ nameH + " - TRANSICION: "+ nameT + "\n");
-				LogGestorMutex(".release -> Hilo: "+ nameH + " - Transicion: "+ nameT);
+				LogGestorColas(".encolo -> HILO: "+ nameH + " - Tr: "+ nameT + "\n");
+				LogGestorMutex(".release(ANTES DE ENCOLAR) -> Hilo: "+ nameH + " - Tr: "+ nameT);
 				mutex.release();				
 				
 				System.out.println("Libero el monitor. Permisos del monitor: " + mutex.availablePermits());
 				System.out.println("");
 								
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
-				try 
-				{
-					mutex.acquire();					
-				}
-				catch (InterruptedException e) 
-				{
-					e.printStackTrace();
-				}
+				LogGestorColas("- ACTUAL: " + this.cola.MostrarVc());
 				cola.quitar(vectorDeDisparo);
-				//hiloDespertado = false;
-				
-				LogGestorMutex(".acquire Hilo liberado: "+ nameH + "-Trans.: "+ nameT);
-				//LogGestorColas("hiloDespertado: "+ hiloDespertado + "\n");
+				LogGestorColas("Hilo liberado: "+ nameH + " - Tr: "+ nameT);
+				LogGestorColas("- LUEGO DE LIBERAR HILO: " + this.cola.MostrarVc());
 			}
 		}
-		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Transicion: "+ nameT + "\n");
+		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Tr: "+ nameT + "\n");
 		mutex.release();
-		//return 1;										//RETORNOOOO 1
 	}
 	
 	public synchronized int PosicionTransicion(int[] transicion)
