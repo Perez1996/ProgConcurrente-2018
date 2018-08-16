@@ -56,8 +56,8 @@ public class Main
             GestorDeMonitor monitor = new GestorDeMonitor();
             
             ProcesoFerrocarril h1 = new ProcesoFerrocarril(monitor, "Personas");                   
-            ProcesoFerrocarril h2 = new ProcesoFerrocarril(monitor, "CabinaTren");
-            ProcesoFerrocarril h3 = new ProcesoFerrocarril(monitor, "Vagon");
+            ProcesoFerrocarril h2 = new ProcesoFerrocarril(monitor, "SUBEN");
+            ProcesoFerrocarril h3 = new ProcesoFerrocarril(monitor, "BAJAN");
             ProcesoFerrocarril h5 = new ProcesoFerrocarril(monitor, "NoGente");
             ProcesoFerrocarril h4 = new ProcesoFerrocarril(monitor, "Arranque");
             ProcesoFerrocarril h6 = new ProcesoFerrocarril(monitor, "NoLugar");

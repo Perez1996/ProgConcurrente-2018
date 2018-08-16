@@ -37,10 +37,10 @@ public class RdP
 	public RdP() throws FileNotFoundException
 	{
 		// Importamos la matriz de Ifile y el vector de marcado incial de sus respectivos archivos.
-		Scanner Ifile = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/I"));
-		Scanner Hfile = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/H"));
-	    Scanner m0file = new Scanner (new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/m0"));
-	    Scanner t0file = new Scanner(new File("C:/Users/Danilo/Workspace/PC_FINAL2017_Simple/src/tp_final/Tsens"));
+		Scanner Ifile = new Scanner (new File("C:/Users/Danilo/Desktop/concurrenteGIT/ProgConcurrente-2018/PC_FINAL2017_Simple/src/tp_final/I"));
+		Scanner Hfile = new Scanner (new File("C:/Users/Danilo/Desktop/concurrenteGIT/ProgConcurrente-2018/PC_FINAL2017_Simple/src/tp_final/H"));
+	    Scanner m0file = new Scanner (new File("C:/Users/Danilo/Desktop/concurrenteGIT/ProgConcurrente-2018/PC_FINAL2017_Simple/src/tp_final/m0"));
+	    Scanner t0file = new Scanner(new File("C:/Users/Danilo/Desktop/concurrenteGIT/ProgConcurrente-2018/PC_FINAL2017_Simple/src/tp_final/Tsens"));
 	    
 	    //Extramos los primeros dos valores de la matriz de Ifile que son el nuermo de filas y el numero de columnas respectivamente.
 	    fila=Ifile.nextInt();

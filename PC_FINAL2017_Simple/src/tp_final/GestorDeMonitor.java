@@ -56,7 +56,7 @@ public class GestorDeMonitor
 			e.printStackTrace();
 		}
 		
-		LogGestorMutex(".acquire-> Hilo: "+ nameH + " - Tr: "+ nameT);
+		LogGestorMutex(".acquire-> Hilo: "+ nameH + " - Tr: "+ nameT+"_____________________________\n");
 		System.out.println("Cola de monitor: " + mutex.getQueueLength());
 		
 		k=true;
@@ -86,7 +86,8 @@ public class GestorDeMonitor
 				if(mIgualA1)
 				{
 					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13]));
-					LogGestorColas(".DESPIERTO -> Transicion: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13])+"\n");
+					LogGestorColas(".DESPIERTO -> Transicion: T"+ politica.cual(m, rdp.getVectorDeEstado()[10],rdp.getVectorDeEstado()[13])+
+							"\n___________________________________________________________________________________\n");
 					return;
 				}
 				else
@@ -102,20 +103,20 @@ public class GestorDeMonitor
 				System.out.println("");
 				
 				LogGestorColas(".encolo -> HILO: "+ nameH + " - Tr: "+ nameT + "\n");
-				LogGestorMutex(".release(ANTES DE ENCOLAR) -> Hilo: "+ nameH + " - Tr: "+ nameT);
+				LogGestorMutex(".release(ANTES DE ENCOLAR) -> Hilo: "+ nameH + " - Tr: "+ nameT+"\n___________________________________________________________________________________\n\n\n");
 				mutex.release();				
 				
 				System.out.println("Libero el monitor. Permisos del monitor: " + mutex.availablePermits());
 				System.out.println("");
 								
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
-				LogGestorColas("- ACTUAL: " + this.cola.MostrarVc());
 				cola.quitar(vectorDeDisparo);
-				LogGestorColas("Hilo liberado: "+ nameH + " - Tr: "+ nameT);
-				LogGestorColas("- LUEGO DE LIBERAR HILO: " + this.cola.MostrarVc());
+				LogGestorColas("- LUEGO DE LIBERAR HILO: " + this.cola.MostrarVc()+
+						"\n___________________________________________________________________________________\n");
+				LogGestorColas("- Hilo liberado: "+ nameH + " - Tr: "+ nameT+"******************************\n");
 			}
 		}
-		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Tr: "+ nameT + "\n");
+		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Tr: "+ nameT + "\n___________________________________________________________________________________\n\n\n");
 		mutex.release();
 	}
 	
@@ -172,7 +173,10 @@ public class GestorDeMonitor
 	
 	public synchronized void LogGestorInicio(String accion)
 	{
-		  LogGestor.log(Level.INFO,"INICIO" + accion);
+		  LogGestor.log(Level.INFO,"INICIO" +
+				  		"\n####################################################################################"+ 
+				  		accion +
+				  		"####################################################################################\n\n");
 	}
 	
 	public synchronized void LogGestorInfo2()

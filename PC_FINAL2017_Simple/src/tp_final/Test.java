@@ -22,14 +22,6 @@ public class Test
 		{
 			condicion = false;
 		}
-		else if(M[7] + M[8] != 1)
-		{
-			condicion = false;
-		}
-		else if(M[0] + M[9] != 1)
-		{
-			condicion = false;
-		}
 		else if(M[10] + M[11] + M[12] != 5)
 		{
 			condicion = false;
@@ -47,6 +39,18 @@ public class Test
 			condicion = false;
 		}
 		else if(M[4] + M[9] != 1)
+		{
+			condicion = false;
+		}
+		else if(M[7] + M[8] + M[9] != 1)
+		{
+			condicion = false;
+		}
+		else if(M[1] + M[7] + M[8] != 1)
+		{
+			condicion = false;
+		}
+		else if(M[3] + M[7] + M[8] != 1)
 		{
 			condicion = false;
 		}
