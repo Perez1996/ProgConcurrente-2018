@@ -1,10 +1,10 @@
 package tp_final;
 
-public class Politicas 
+public class Politicas 				//    T                       T         T
 {							        // T0 T1 T2 T3 T4 T5 T6 T7 T8 T9 T10T11T12
-	private int[] prioridadSubir  =   {1, 1, 1, 1, 1, 2, 3, 2, 3, 1, 1, 1, 1};
-	private int[] prioridadBajar =    {1, 1, 1, 1, 1, 3, 2, 3, 2, 1, 1, 1, 1};
-	private int[] prioridadIgualada   =   {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+	private int[] prioridadSubir  =   {2, 1, 2, 2, 2, 3, 5, 3, 5, 1, 2, 2, 1};
+	private int[] prioridadBajar =    {2, 1, 2, 2, 2, 5, 3, 5, 3, 1, 2, 2, 1};
+	private int[] prioridadIgualada   =   {2, 1, 2, 2, 3, 3, 3, 3, 1, 2, 2, 2, 1};
 	private int[] prioridadElejida    =   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	public synchronized int cual(int[] m, int trenL, int vagonL)

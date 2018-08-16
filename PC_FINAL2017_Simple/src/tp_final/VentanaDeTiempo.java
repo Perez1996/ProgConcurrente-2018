@@ -7,7 +7,7 @@ public class VentanaDeTiempo
 	
 	public synchronized boolean testVentanaTiempo(long TimeStamp, int posicionDisparo)
 	{
-		if(alfa[posicionDisparo]<=(TimeStamp))
+		if(alfa[posicionDisparo]<=(System.currentTimeMillis()-TimeStamp))
 		{
 			return true;
 		}

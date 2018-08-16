@@ -1,6 +1,7 @@
 package tp_final;
 
 import java.util.*;
+import java.util.concurrent.Semaphore;
 import java.io.*;
 
 public class RdP 
@@ -22,13 +23,13 @@ public class RdP
 	private long[] beta = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 	private long[] marcaDeTiempo = {0,0,0,0,0,0,0,0,0,System.currentTimeMillis(),0,0,System.currentTimeMillis()};
 	private boolean inhibida = false;//new
+	private boolean s=true, k=false;
+	private int esperando = 0;
+	private Semaphore mutex;
 /*
  * Transiciones temporales
  * 
  * */
-	private boolean posible;
-	private boolean esTemporal;
-	private boolean aTiempo;
 	private String vector1 = "";
 	private String vector2 = "";
 	private String vector3 = "";
@@ -46,6 +47,7 @@ public class RdP
 	    fila=Ifile.nextInt();
         columna=Ifile.nextInt();    
         multp = new int[fila];
+        mutex = new Semaphore(0, true);
         
         //Creamo la matriz de Ifile con sus respectivas dimensiones.
         I = new int[fila][columna];
@@ -104,9 +106,7 @@ public class RdP
 	    
 	    vdt = new VentanaDeTiempo();
 	    alfa = vdt.VectorAlfa();
-	    beta = vdt.VectorBeta();
-	    
-        posible = true;
+	    beta = vdt.VectorBeta();        
 	}
 	
 	//Devuelve la dimension de la Fila de la matriz I.
@@ -131,10 +131,10 @@ public class RdP
 		return vectorDeEstado;
 	}
 	
-	public synchronized boolean disparar(int[] disparo)
+	public boolean disparar(int[] disparo, boolean sleep)
 	{
-		this.posible = true;
 		this.inhibida = false;
+		this.s = true;
 		int suma = 0;
 		int idShot = 0;
 		
@@ -164,61 +164,68 @@ public class RdP
 	    	return false;
 	    }		
 		
-		if(beta[idShot] == -1)
-		{
-			esTemporal = false;
-		}
-		else
-		{
-			esTemporal = true;
-			//Si es temporal, como sabemos que al sensibilizarce se empezo a contar un tiempo,
-			//se marca el tiempo en que llego el hilo y luego se hace una diferencia con el tiempo anterior. 
-			//Esto se hace con el fin de probar que el tiempo resultado caiga dentro de la ventana de tiempo.
-			System.out.println("TIEMPO DE CONTEO: " + marcaDeTiempo[idShot] + "\n");
-			System.out.println("NUEVA MARCA: " + System.currentTimeMillis() + "\n");
-			llegadaTime(idShot);
-			System.out.println("Marca de tiempo: " + marcaDeTiempo[idShot] + "\n");
-		}
-		
-		estaSensibilizada(suma, disparo);
-		
-		//Si el disparo es posible.
-		if(posible)
-		{
-			//Se verifica si la transicion temporal se sensibilizo dentro del rango del tiempo.
-			if(esTemporal)
-			{
-				aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot);
-				while(aTiempo == false)
-				{
-					try 
-					{
-						System.out.println("TIENE QUE DORMIR: " + (alfa[idShot]-marcaDeTiempo[idShot]) + "\n");
-						Thread.sleep((alfa[idShot]-marcaDeTiempo[idShot]));
-					} 
-					catch (InterruptedException e) 
-					{
-						e.printStackTrace();
-					}
-					marcaDeTiempo[idShot] += (alfa[idShot]-marcaDeTiempo[idShot]);
-					System.out.println("Marca de tiempo luego de dormir: " + marcaDeTiempo[idShot] + "\n");
-					System.out.println("Afa: " + alfa[idShot] + "\n");
-					aTiempo = vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot);
-					System.out.println("testVDT: " + aTiempo + "\n");
+	    while(s)
+	    {
+	    	if(estaSensibilizada(suma, disparo) == false)
+	    	{
+	    		return false;
+	    	}
+	    	
+	    	if(vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot))
+	    	{
+	    		if(esperando == 0 || sleep)
+	    		{
+	    			marcaDeTiempo[idShot] = vdt.setNuevoTimeStamp();
+	    			k = true;
+	    			s = false;
+	    		}
+	    		else
+	    		{
+	    			k = false;
+	    			s = false;
+	    		}
+	    	}
+	    	else
+	    	{
+	    		mutex.release();
+	    		
+	    		esperando++;
+	    		sleep = true;
+	    		
+	    		try
+	    		{
+	    			Thread.sleep(Math.abs(marcaDeTiempo[idShot]+alfa[idShot]-System.currentTimeMillis()));
+	    		}
+	    		catch(InterruptedException e)
+	    		{
+	    			e.printStackTrace();
+	    		}
+	    		
+	    		try 
+	    		{
+					mutex.acquire();
 				}
-			}
-
-			datosUpdate();
-			
-			//Se realiza el test de invariantes de plazas.
-			test.testIDP(vectorDeEstado);
-
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
+	    		catch (InterruptedException e) 
+	    		{
+					e.printStackTrace();
+				}
+	    		esperando--;
+	    		s = true;
+	    	}
+	    }
+	    
+	    if(k)
+	    {
+	    	datosUpdate();
+	    	test.testIDP(vectorDeEstado);
+	    	
+	    	sleep = false;
+	    	return true;
+	    }
+	    else
+	    {
+	    	return false;
+	    }
 	}
 
 	public synchronized boolean estaInhibida(int test)
@@ -245,12 +252,7 @@ public class RdP
 		return valorRetornado;
 	}
 
-	public synchronized void llegadaTime(int idShot)
-	{
-		marcaDeTiempo[idShot] = System.currentTimeMillis() - marcaDeTiempo[idShot];
-	}
-	
-	public synchronized void estaSensibilizada(int suma, int[] disparo)
+	public synchronized boolean estaSensibilizada(int suma, int[] disparo)
 	{
 		//Multiplicamos la matriz por el vector de disparo.
 		for(int i=0; i<fila; i++)// 7
@@ -272,9 +274,10 @@ public class RdP
 			// Si algun elemento de la suma entre el marcado y la multp es -1, el disparo no es posible.
 			if(this.vectorDeEstado[i] + this.multp[i] == -1)
 			{
-				this.posible = false;
+				return false;
 			}
 		}
+		return true;
 	}
 	
 	public synchronized void datosUpdate()
@@ -323,7 +326,6 @@ public class RdP
 				if(beta[c] != -1)// Si es temporal.
 				{
 					marcaDeTiempo[c] = vdt.setNuevoTimeStamp(); //Establece una marca de tiempo.
-					System.out.println("INICIO DE CONTEO: " + marcaDeTiempo[c] +"\n");
 				}
 			}
 		}

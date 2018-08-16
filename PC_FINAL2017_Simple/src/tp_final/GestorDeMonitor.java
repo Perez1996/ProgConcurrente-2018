@@ -45,7 +45,7 @@ public class GestorDeMonitor
 		return rdp;
 	}
 	
-	public void dispararTransicion(int[] vectorDeDisparo, String nameT, String nameH)
+	public void dispararTransicion(int[] vectorDeDisparo, String nameT, String nameH, boolean sleep)
 	{
 		try 
 		{
@@ -57,15 +57,14 @@ public class GestorDeMonitor
 		}
 		
 		LogGestorMutex(".acquire-> Hilo: "+ nameH + " - Tr: "+ nameT+"_____________________________\n");
-		System.out.println("Cola de monitor: " + mutex.getQueueLength());
 		
-		k=true;
+		this.k=true;
 		
 		while(k)
 		{
 			mIgualA1 = false;
 			
-			if(rdp.disparar(vectorDeDisparo))
+			if(rdp.disparar(vectorDeDisparo, sleep))
 			{
 				MostrarInformacion(true, vectorDeDisparo, nameT, nameH);
 				LogGestorInfo();
@@ -100,19 +99,14 @@ public class GestorDeMonitor
 				LogGestorInfo2();
 				MostrarInformacion(false, vectorDeDisparo, nameT, nameH);
 				
-				System.out.println("");
-				
 				LogGestorColas(".encolo -> HILO: "+ nameH + " - Tr: "+ nameT + "\n");
 				LogGestorMutex(".release(ANTES DE ENCOLAR) -> Hilo: "+ nameH + " - Tr: "+ nameT+"\n___________________________________________________________________________________\n\n\n");
 				mutex.release();				
-				
-				System.out.println("Libero el monitor. Permisos del monitor: " + mutex.availablePermits());
-				System.out.println("");
 								
 				cola.Acquire(vectorDeDisparo, nameH);//Accion bloqueante.
 				cola.quitar(vectorDeDisparo);
 				LogGestorColas("- LUEGO DE LIBERAR HILO: " + this.cola.MostrarVc()+
-						"\n___________________________________________________________________________________\n");
+						"\n___________________________________________________________________________________\n\n\n");
 				LogGestorColas("- Hilo liberado: "+ nameH + " - Tr: "+ nameT+"******************************\n");
 			}
 		}
