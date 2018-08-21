@@ -40,11 +40,6 @@ public class GestorDeMonitor
 		LogGestorInicio("\n"+rdp.MostrarVe()+"\n"+rdp.MostrarVs());
 	}
 	
-	public RdP getRdP()
-	{
-		return rdp;
-	}
-	
 	public void dispararTransicion(int[] vectorDeDisparo, String nameT, String nameH, boolean sleep)
 	{
 		try 
@@ -96,6 +91,7 @@ public class GestorDeMonitor
 			}
 			else
 			{
+				cola.agregar(vectorDeDisparo);
 				LogGestorInfo2();
 				MostrarInformacion(false, vectorDeDisparo, nameT, nameH);
 				
@@ -114,21 +110,6 @@ public class GestorDeMonitor
 		mutex.release();
 	}
 	
-	public synchronized int PosicionTransicion(int[] transicion)
-	{
-		int posicionTransicion = 0;
-		
-		for(int i=0; i<transicion.length; i++)
-		{
-			if(transicion[i]==1)
-			{
-				posicionTransicion = i;
-				break;
-			}
-		}
-		return posicionTransicion;
-	}
-	
 	public synchronized void MostrarInformacion(boolean opcion, int[] transicion, String NombreTransicion, String NombreHilo)
 	{
 		if(opcion==true)
@@ -144,7 +125,6 @@ public class GestorDeMonitor
 			System.out.println("TRANSICION NO DISPARADA: "+NombreTransicion+" :( :( :( :( :( :( :(");
 			System.out.println("HILO: "+NombreHilo);
 			rdp.MostrarVectores();
-			cola.agregar(transicion);
 			cola.MostrarVector();
 			System.out.println("");
 		}

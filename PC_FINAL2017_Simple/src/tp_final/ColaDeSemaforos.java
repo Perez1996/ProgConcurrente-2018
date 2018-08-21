@@ -26,11 +26,6 @@ public class ColaDeSemaforos
 		}
 	}
 
-	public String getVecName(int posicion)
-	{
-		return vecName[posicion];
-	}
-	
 	public synchronized void agregar(int[] t)
 	{
 		for(int i=0;i<t.length;i++)
@@ -42,7 +37,7 @@ public class ColaDeSemaforos
 			}
 		}
 	}
-	
+
 	public synchronized void quitar(int[] t)
 	{
 		for(int i=0;i<t.length;i++)
