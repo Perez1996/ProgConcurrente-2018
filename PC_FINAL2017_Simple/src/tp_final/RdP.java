@@ -24,7 +24,7 @@ public class RdP
 	private long[] marcaDeTiempo = {0,0,0,0,0,0,0,0,0,System.currentTimeMillis(),0,0,System.currentTimeMillis()};
 	private boolean inhibida = false;//new
 	private boolean s=true, k=false;
-	private int esperando = 0;
+	private int halt = 0;
 	private Semaphore mutex;
 /*
  * Transiciones temporales
@@ -173,7 +173,7 @@ public class RdP
 	    	
 	    	if(vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot))
 	    	{
-	    		if(esperando == 0 || sleep)
+	    		if(halt == 0 || sleep)
 	    		{
 	    			marcaDeTiempo[idShot] = vdt.setNuevoTimeStamp();
 	    			k = true;
@@ -189,7 +189,7 @@ public class RdP
 	    	{
 	    		mutex.release();
 	    		
-	    		esperando++;
+	    		halt++;
 	    		sleep = true;
 	    		
 	    		try
@@ -209,7 +209,7 @@ public class RdP
 	    		{
 					e.printStackTrace();
 				}
-	    		esperando--;
+	    		halt--;
 	    		s = true;
 	    	}
 	    }
