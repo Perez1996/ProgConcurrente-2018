@@ -1622,7 +1622,7 @@
 											"top": 830,
 											"width": 270.61328125,
 											"height": 13,
-											"text": "+multp: int Array",
+											"text": "-multp: int Array",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5637,6 +5637,7 @@
 								"$ref": "AAAAAAFlERUCUIuIAA4="
 							},
 							"name": "multp",
+							"visibility": "private",
 							"type": "int Array"
 						}
 					],
@@ -9650,9 +9651,9 @@
 																	"font": "Arial;13;0",
 																	"left": 748,
 																	"top": 1382,
-																	"width": 137.30615234375,
+																	"width": 142.365234375,
 																	"height": 13,
-																	"text": "[halt = 0 or sleep = true]"
+																	"text": "[halt = 0 or sleep = false]"
 																}
 															],
 															"font": "Arial;13;0",
@@ -9683,9 +9684,9 @@
 																	"font": "Arial;13;0",
 																	"left": 748,
 																	"top": 1640,
-																	"width": 142.365234375,
+																	"width": 137.30615234375,
 																	"height": 13,
-																	"text": "[halt = 1 or sleep = false]"
+																	"text": "[halt = 1 or sleep = true]"
 																}
 															],
 															"font": "Arial;13;0",
@@ -17045,7 +17046,7 @@
 												"$ref": "AAAAAAFlXpg4TfSRCHs="
 											},
 											"name": "Operand1",
-											"guard": "halt = 0 or sleep = true"
+											"guard": "halt = 0 or sleep = false"
 										},
 										{
 											"_type": "UMLInteractionOperand",
@@ -17054,7 +17055,7 @@
 												"$ref": "AAAAAAFlXpg4TfSRCHs="
 											},
 											"name": "InteractionOperand1",
-											"guard": "halt = 1 or sleep = false"
+											"guard": "halt = 1 or sleep = true"
 										}
 									]
 								},

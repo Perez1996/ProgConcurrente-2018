@@ -8,7 +8,7 @@ public class RdP
 {
 	private static int fila;
 	private static int columna;
-	int[] multp;//new
+	private int[] multp;//new
 	private int[][] I;
     private int[][] H;
 	private int[] vectorDeEstado;
@@ -173,7 +173,7 @@ public class RdP
 	    	
 	    	if(vdt.testVentanaTiempo(marcaDeTiempo[idShot], idShot))
 	    	{
-	    		if(halt == 0 || sleep)
+	    		if(halt == 0)
 	    		{
 	    			marcaDeTiempo[idShot] = vdt.setNuevoTimeStamp();
 	    			k = true;
@@ -190,7 +190,7 @@ public class RdP
 	    		mutex.release();
 	    		
 	    		halt++;
-	    		sleep = true;
+	    		//sleep = true;
 	    		
 	    		try
 	    		{
@@ -210,7 +210,7 @@ public class RdP
 					e.printStackTrace();
 				}
 	    		halt--;
-	    		s = true;
+	    		//s = true;
 	    	}
 	    }
 	    
