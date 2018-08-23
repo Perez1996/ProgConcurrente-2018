@@ -17,8 +17,8 @@ public class GestorDeMonitor
 	private int[] Vc;
 	private int[] m;
 	private final static Logger LogGestor = Logger.getLogger("loger.clases.GestorDeMonitor");
-
-	
+	private Test INV_T;
+	private int viajaron;
 	public GestorDeMonitor() throws FileNotFoundException
 	{
 		mutex = new Semaphore(1,true);
@@ -30,6 +30,8 @@ public class GestorDeMonitor
 		Vs = new int[RdP.getColumna()];
 		Vc = new int[RdP.getColumna()];
 		m = new int[RdP.getColumna()];
+		INV_T = new Test();
+		viajaron = 0;
 		
 		for(int i=0;i<RdP.getColumna();i++)
 		{
@@ -63,6 +65,12 @@ public class GestorDeMonitor
 			{
 				MostrarInformacion(true, vectorDeDisparo, nameT, nameH);
 				LogGestorInfo();
+				INV_T.testInvTransicion(vectorDeDisparo);
+				
+				if(vectorDeDisparo[5] == 1 || vectorDeDisparo[7] == 1)
+				{
+					viajaron++;
+				}
 				
 				Vs = rdp.sensibilizadas();
 				Vc = cola.quienesEstan();
@@ -108,6 +116,16 @@ public class GestorDeMonitor
 		}
 		LogGestorMutex(".release(FINAL) -> Hilo: "+ nameH + " - Tr: "+ nameT + "\n___________________________________________________________________________________\n\n\n");
 		mutex.release();
+	}
+	
+	public int getPersonasQueViajaron()
+	{
+		return viajaron;
+	}
+	
+	public Test getTest()
+	{
+		return INV_T;
 	}
 	
 	public synchronized void MostrarInformacion(boolean opcion, int[] transicion, String NombreTransicion, String NombreHilo)

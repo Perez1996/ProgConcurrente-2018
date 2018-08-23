@@ -28,7 +28,7 @@ public class ProcesoFerrocarril extends Thread
 	
 	public void run()
 	{
-		while(true)
+		while(monitor.getPersonasQueViajaron()<30)
 		{
 			if(nombreHilo == "Personas")
 			{
@@ -71,5 +71,8 @@ public class ProcesoFerrocarril extends Thread
 				monitor.dispararTransicion(t2, "T2", "Autos", sleep); 
 			}
 		}
+		System.out.println("EJECUCION FINALIZADA! \n\n PERSONAS QUE VIAJARON = "+monitor.getPersonasQueViajaron()+"\n\n");
+		monitor.getTest().cantidad_INV_T();
+		System.exit(0);
 	}
 }
