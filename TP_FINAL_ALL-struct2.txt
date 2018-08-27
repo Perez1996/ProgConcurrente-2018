@@ -1,0 +1,220 @@
+Struct version 3.4.4 -- 01/05/16 -- LAAS/CNRS
+
+parsed net TP_FINAL_ALL_1
+
+42 places, 42 transitions
+
+net TP_FINAL_ALL_1
+tr t0 p0 p30 p35 -> p1 p12 
+tr t1 p1 p13 -> p2 p31 p36 
+tr t10 p10 -> p11 
+tr t11 p11 p5?-1 -> p10 
+tr t12 p16 p23 p12?-1 -> p20 
+tr t13 p21 p12?-1 p35?-1 -> p16 p22 
+tr t14 p17 p23 p12?-1 -> p18 
+tr t15 p19 p12?-1 p35?-1 -> p17 p22 
+tr t16 p16 p25 p13?-1 -> p20 
+tr t17 p21 p13?-1 p37?-1 -> p16 p24 
+tr t18 p17 p25 p13?-1 -> p18 
+tr t19 p19 p13?-1 p37?-1 -> p17 p24 
+tr t2 p2 p31 p37 -> p13 p3 
+tr t20 p16 p27 p14?-1 -> p20 
+tr t21 p21 p14?-1 p39?-1 -> p16 p26 
+tr t22 p17 p27 p14?-1 -> p18 
+tr t23 p19 p14?-1 p39?-1 -> p17 p26 
+tr t24 p16 p29 p15?-1 -> p20 
+tr t25 p21 p15?-1 p41?-1 -> p16 p28 
+tr t26 p17 p29 p15?-1 -> p18 
+tr t27 p19 p15?-1 p41?-1 -> p17 p28 
+tr t28 p18 p30?-1 p31?-1 p32?-1 p33?-1 -> p19 
+tr t29 p20 p30?-1 p31?-1 p32?-1 p33?-1 -> p21 
+tr t3 p14 p3 -> p32 p38 p4 
+tr t30 p22 p35?-1 -> p23 
+tr t31 p24 p37?-1 -> p25 
+tr t32 p26 p39?-1 -> p27 
+tr t33 p28 p41?-1 -> p29 
+tr t34 p34 p16?-1 p17?-1 -> p35 
+tr t35 p34 p23?-1 -> p35 
+tr t36 p36 p16?-1 p17?-1 -> p37 
+tr t37 p36 p25?-1 -> p37 
+tr t38 p38 p16?-1 p17?-1 -> p39 
+tr t39 p38 p27?-1 -> p39 
+tr t4 p32 p39 p4 -> p14 p5 
+tr t40 p40 p29?-1 -> p41 
+tr t41 p40 p16?-1 p17?-1 -> p41 
+tr t5 p15 p5 -> p33 p40 p6 
+tr t6 p33 p41 p6 -> p15 p7 
+tr t7 p12 p7 -> p0 p30 p34 
+tr t8 p8 -> p9 
+tr t9 p9 p1?-1 -> p8 
+pl p0 (1)
+pl p10 (5)
+pl p13 (1)
+pl p14 (1)
+pl p15 (1)
+pl p16 (5)
+pl p17 (10)
+pl p22 (10)
+pl p24 (10)
+pl p26 (10)
+pl p28 (10)
+pl p30 (1)
+pl p34 (1)
+pl p8 (5)
+
+0.000s
+
+P-SEMI-FLOWS GENERATING SET ------------------------------------- 
+
+invariant
+
+p10 p11 (5)
+p17 p18 p19 (10)
+p18 p19 p20 p21 p22 p23 p24 p25 p26 p27 p28 p29 (40)
+p16 p20 p21 (5)
+p8 p9 (5)
+p12 p34 p35 (1)
+p12 p30 (1)
+p0 p12 (1)
+p14 p38 p39 (1)
+p14 p4 (1)
+p14 p32 (1)
+p15 p40 p41 (1)
+p15 p6 (1)
+p15 p33 (1)
+p13 p36 p37 (1)
+p13 p31 (1)
+p13 p2 (1)
+p1 p3 p34 p35 p36 p37 p38 p39 p40 p41 p5 p7 (1)
+p1 p3 p30 p36 p37 p38 p39 p40 p41 p5 p7 (1)
+p0 p1 p3 p36 p37 p38 p39 p40 p41 p5 p7 (1)
+p1 p3 p31 p34 p35 p38 p39 p40 p41 p5 p7 (1)
+p1 p3 p30 p31 p38 p39 p40 p41 p5 p7 (1)
+p0 p1 p3 p31 p38 p39 p40 p41 p5 p7 (1)
+p1 p2 p3 p34 p35 p38 p39 p40 p41 p5 p7 (1)
+p1 p2 p3 p30 p38 p39 p40 p41 p5 p7 (1)
+p0 p1 p2 p3 p38 p39 p40 p41 p5 p7 (1)
+p1 p3 p34 p35 p36 p37 p4 p40 p41 p5 p7 (1)
+p1 p3 p30 p36 p37 p4 p40 p41 p5 p7 (1)
+p0 p1 p3 p36 p37 p4 p40 p41 p5 p7 (1)
+p1 p3 p31 p34 p35 p4 p40 p41 p5 p7 (1)
+p1 p3 p30 p31 p4 p40 p41 p5 p7 (1)
+p0 p1 p3 p31 p4 p40 p41 p5 p7 (1)
+p1 p2 p3 p34 p35 p4 p40 p41 p5 p7 (1)
+p1 p2 p3 p30 p4 p40 p41 p5 p7 (1)
+p0 p1 p2 p3 p4 p40 p41 p5 p7 (1)
+p1 p3 p32 p34 p35 p36 p37 p40 p41 p5 p7 (1)
+p1 p3 p30 p32 p36 p37 p40 p41 p5 p7 (1)
+p0 p1 p3 p32 p36 p37 p40 p41 p5 p7 (1)
+p1 p3 p31 p32 p34 p35 p40 p41 p5 p7 (1)
+p1 p3 p30 p31 p32 p40 p41 p5 p7 (1)
+p0 p1 p3 p31 p32 p40 p41 p5 p7 (1)
+p1 p2 p3 p32 p34 p35 p40 p41 p5 p7 (1)
+p1 p2 p3 p30 p32 p40 p41 p5 p7 (1)
+p0 p1 p2 p3 p32 p40 p41 p5 p7 (1)
+p1 p3 p34 p35 p36 p37 p38 p39 p5 p6 p7 (1)
+p1 p3 p30 p36 p37 p38 p39 p5 p6 p7 (1)
+p0 p1 p3 p36 p37 p38 p39 p5 p6 p7 (1)
+p1 p3 p31 p34 p35 p38 p39 p5 p6 p7 (1)
+p1 p3 p30 p31 p38 p39 p5 p6 p7 (1)
+p0 p1 p3 p31 p38 p39 p5 p6 p7 (1)
+p1 p2 p3 p34 p35 p38 p39 p5 p6 p7 (1)
+p1 p2 p3 p30 p38 p39 p5 p6 p7 (1)
+p0 p1 p2 p3 p38 p39 p5 p6 p7 (1)
+p1 p3 p34 p35 p36 p37 p4 p5 p6 p7 (1)
+p1 p3 p30 p36 p37 p4 p5 p6 p7 (1)
+p0 p1 p3 p36 p37 p4 p5 p6 p7 (1)
+p1 p3 p31 p34 p35 p4 p5 p6 p7 (1)
+p1 p3 p30 p31 p4 p5 p6 p7 (1)
+p0 p1 p3 p31 p4 p5 p6 p7 (1)
+p1 p2 p3 p34 p35 p4 p5 p6 p7 (1)
+p1 p2 p3 p30 p4 p5 p6 p7 (1)
+p0 p1 p2 p3 p4 p5 p6 p7 (1)
+p1 p3 p32 p34 p35 p36 p37 p5 p6 p7 (1)
+p1 p3 p30 p32 p36 p37 p5 p6 p7 (1)
+p0 p1 p3 p32 p36 p37 p5 p6 p7 (1)
+p1 p3 p31 p32 p34 p35 p5 p6 p7 (1)
+p1 p3 p30 p31 p32 p5 p6 p7 (1)
+p0 p1 p3 p31 p32 p5 p6 p7 (1)
+p1 p2 p3 p32 p34 p35 p5 p6 p7 (1)
+p1 p2 p3 p30 p32 p5 p6 p7 (1)
+p0 p1 p2 p3 p32 p5 p6 p7 (1)
+p1 p3 p33 p34 p35 p36 p37 p38 p39 p5 p7 (1)
+p1 p3 p30 p33 p36 p37 p38 p39 p5 p7 (1)
+p0 p1 p3 p33 p36 p37 p38 p39 p5 p7 (1)
+p1 p3 p31 p33 p34 p35 p38 p39 p5 p7 (1)
+p1 p3 p30 p31 p33 p38 p39 p5 p7 (1)
+p0 p1 p3 p31 p33 p38 p39 p5 p7 (1)
+p1 p2 p3 p33 p34 p35 p38 p39 p5 p7 (1)
+p1 p2 p3 p30 p33 p38 p39 p5 p7 (1)
+p0 p1 p2 p3 p33 p38 p39 p5 p7 (1)
+p1 p3 p33 p34 p35 p36 p37 p4 p5 p7 (1)
+p1 p3 p30 p33 p36 p37 p4 p5 p7 (1)
+p0 p1 p3 p33 p36 p37 p4 p5 p7 (1)
+p1 p3 p31 p33 p34 p35 p4 p5 p7 (1)
+p1 p3 p30 p31 p33 p4 p5 p7 (1)
+p0 p1 p3 p31 p33 p4 p5 p7 (1)
+p1 p2 p3 p33 p34 p35 p4 p5 p7 (1)
+p1 p2 p3 p30 p33 p4 p5 p7 (1)
+p0 p1 p2 p3 p33 p4 p5 p7 (1)
+p1 p3 p32 p33 p34 p35 p36 p37 p5 p7 (1)
+p1 p3 p30 p32 p33 p36 p37 p5 p7 (1)
+p0 p1 p3 p32 p33 p36 p37 p5 p7 (1)
+p1 p3 p31 p32 p33 p34 p35 p5 p7 (1)
+p1 p3 p30 p31 p32 p33 p5 p7 (1)
+p0 p1 p3 p31 p32 p33 p5 p7 (1)
+p1 p2 p3 p32 p33 p34 p35 p5 p7 (1)
+p1 p2 p3 p30 p32 p33 p5 p7 (1)
+p0 p1 p2 p3 p32 p33 p5 p7 (1)
+
+0.000s
+
+T-SEMI-FLOWS GENERATING SET ------------------------------------- 
+
+consistent
+
+t10 t11
+t8 t9
+t14 t15 t28 t30
+t12 t13 t29 t30
+t18 t19 t28 t31
+t16 t17 t29 t31
+t22 t23 t28 t32
+t20 t21 t29 t32
+t26 t27 t28 t33
+t24 t25 t29 t33
+t0 t1 t2 t3 t35 t37 t39 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t35 t37 t39 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t35 t37 t38 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t35 t37 t38 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t35 t36 t39 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t35 t36 t39 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t35 t36 t38 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t35 t36 t38 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t34 t37 t39 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t34 t37 t39 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t34 t37 t38 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t34 t37 t38 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t34 t36 t39 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t34 t36 t39 t4 t40 t5 t6 t7
+t0 t1 t2 t3 t34 t36 t38 t4 t41 t5 t6 t7
+t0 t1 t2 t3 t34 t36 t38 t4 t40 t5 t6 t7
+t20 t23 t25 t26 t28 t29 t32 t33
+t16 t19 t25 t26 t28 t29 t31 t33
+t12 t15 t25 t26 t28 t29 t30 t33
+t21 t22 t24 t27 t28 t29 t32 t33
+t16 t19 t21 t22 t28 t29 t31 t32
+t12 t15 t21 t22 t28 t29 t30 t32
+t17 t18 t24 t27 t28 t29 t31 t33
+t17 t18 t20 t23 t28 t29 t31 t32
+t12 t15 t17 t18 t28 t29 t30 t31
+t13 t14 t24 t27 t28 t29 t30 t33
+t13 t14 t20 t23 t28 t29 t30 t32
+t13 t14 t16 t19 t28 t29 t30 t31
+
+0.000s
+
+ANALYSIS COMPLETED  --------------------------------------------- 
+
+
+
