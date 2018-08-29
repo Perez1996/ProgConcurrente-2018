@@ -65,12 +65,12 @@ public class GestorDeMonitor
 			{
 				MostrarInformacion(true, vectorDeDisparo, nameT, nameH);
 				LogGestorInfo();
-				//INV_T.testInvTransicion(vectorDeDisparo);
+				INV_T.testInvTransicion(vectorDeDisparo);
 				
-				if(vectorDeDisparo[13] == 1 || vectorDeDisparo[15] == 1 || 
-				   vectorDeDisparo[17] == 1 || vectorDeDisparo[19] == 1 || 
-				   vectorDeDisparo[21] == 1 || vectorDeDisparo[23] == 1 || 
-				   vectorDeDisparo[25] == 1 || vectorDeDisparo[27] == 1)
+				if(vectorDeDisparo[5] == 1 || vectorDeDisparo[7] == 1 || 
+				   vectorDeDisparo[9] == 1 || vectorDeDisparo[11] == 1 || 
+				   vectorDeDisparo[14] == 1 || vectorDeDisparo[16] == 1 || 
+				   vectorDeDisparo[18] == 1 || vectorDeDisparo[20] == 1)
 				{
 					viajaron++;
 				}
@@ -90,9 +90,9 @@ public class GestorDeMonitor
 				
 				if(mIgualA1)
 				{
-					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[18],rdp.getVectorDeEstado()[20]));
-					LogGestorColas(".DESPIERTO -> Transicion: T"+ politica.cual(m, rdp.getVectorDeEstado()[18],rdp.getVectorDeEstado()[20])+
-							"\n___________________________________________________________________________________\n");
+					cola.Release(politica.cual(m, rdp.getVectorDeEstado()[8],rdp.getVectorDeEstado()[9]));
+					LogGestorColas(".DESPIERTO -> Transicion en posición: "+ politica.cual(m, rdp.getVectorDeEstado()[8],rdp.getVectorDeEstado()[9])+
+							" de la cola\n___________________________________________________________________________________\n");
 					return;
 				}
 				else

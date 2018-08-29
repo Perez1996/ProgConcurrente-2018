@@ -128,13 +128,12 @@ public class Test
 		//PRUEBA DE INVARIANTE 4 Y 5
 		if(id == 9)
 		{
-			aux++;
+			INV4[0]++;
+			INV5[0]++;
 			return;
 		}
 		if(id == 6)
 		{
-			INV4[0]++;
-			aux--;
 			INV4[1]++;
 			return;
 		}else if(id == 10)
@@ -147,8 +146,6 @@ public class Test
 			return;
 		}else if(id == 8)
 		{
-			INV5[0]++;
-			aux--;
 			INV5[1]++;
 			return;
 		}else if(id == 11)
@@ -170,6 +167,9 @@ public class Test
 		int cantidad_INV4 = 0;
 		int cantidad_INV5 = 0;
 		
+		int TOTAL_VIAJES = 0;
+		int TOTAL_PERSONAS = 0;
+		
 		int candidato = 0;
 		if(INV1[0]<=INV1[1])
 		{
@@ -178,7 +178,7 @@ public class Test
 		{
 			cantidad_INV1 = INV1[1];
 		}
-		System.out.println("\nCantidad de veces que se cumple el invariante de transicion 1 = "+cantidad_INV1+"\n");
+		System.out.println("Cantidad de veces que se cumple el invariante: AUTOS CRUZAN PASO NIVEL_AB = "+cantidad_INV1+"\n");
 		
 		candidato = INV2[0];
 		for(int i = 0; i<INV2.length; i++)
@@ -189,7 +189,8 @@ public class Test
 			}
 		}
 		cantidad_INV2 = candidato;
-		System.out.println("\nCantidad de veces que se cumple el invariante de transicion 2 = "+cantidad_INV2+"\n");
+		TOTAL_VIAJES += cantidad_INV2; 
+		System.out.println("Cantidad de veces que se cumple el invariante: RECORRIDO DEL TREN 1 = "+cantidad_INV2+"\n");
 
 		candidato = INV3[0];
 		for(int i = 0; i<INV3.length; i++)
@@ -200,7 +201,9 @@ public class Test
 			}
 		}
 		cantidad_INV3 = candidato;
-		System.out.println("\nCantidad de veces que se cumple el invariante de transicion 3 = "+cantidad_INV3+"\n");
+		TOTAL_VIAJES += cantidad_INV3;
+		System.out.println("Cantidad de veces que se cumple el invariante: RECORRIDO DEL TREN 2 = "+cantidad_INV3+"\n");
+		System.out.println("\nCantidad de RECORRIDOS TOTALES = "+TOTAL_VIAJES+"\n");
 		
 		candidato = INV4[0];
 		for(int i = 0; i<INV4.length; i++)
@@ -211,7 +214,8 @@ public class Test
 			}
 		}
 		cantidad_INV4 = candidato;
-		System.out.println("\nCantidad de veces que se cumple el invariante de transicion 4 = "+cantidad_INV4+"\n");
+		TOTAL_PERSONAS += cantidad_INV4;
+		System.out.println("\nCantidad de veces que se cumple el invariante: BAJA DEL TREN EN ESTACION A = "+cantidad_INV4+"\n");
 		
 		candidato = INV5[0];
 		for(int i = 0; i<INV5.length; i++)
@@ -222,7 +226,9 @@ public class Test
 			}
 		}
 		cantidad_INV5 = candidato;
-		System.out.println("\nCantidad de veces que se cumple el invariante de transicion 5 = "+cantidad_INV5+"\n");
+		TOTAL_PERSONAS += cantidad_INV5;
+		System.out.println("Cantidad de veces que se cumple el invariante: BAJA DEL VAGON EN ESTACION A = "+cantidad_INV5+"\n");
+		System.out.println("\nCantidad TOTAL de PERSONAS QUE REALIZARON UN VIAJE = "+TOTAL_PERSONAS+"\n\n");
 	}
 			
 }

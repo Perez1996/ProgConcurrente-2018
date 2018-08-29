@@ -56,28 +56,36 @@ public class Main
             GestorDeMonitor monitor = new GestorDeMonitor();
             
             ProcesoFerrocarril h1 = new ProcesoFerrocarril(monitor, "Personas_EST_A");                   
-            ProcesoFerrocarril h2 = new ProcesoFerrocarril(monitor, "suben_EST_A");
-            ProcesoFerrocarril h3 = new ProcesoFerrocarril(monitor, "bajan_EST_A");
-            ProcesoFerrocarril h5 = new ProcesoFerrocarril(monitor, "NoGente_EST_A");
-            ProcesoFerrocarril h4 = new ProcesoFerrocarril(monitor, "Tren");
-            ProcesoFerrocarril h6 = new ProcesoFerrocarril(monitor, "NoLugar_EST_A");
-            ProcesoFerrocarril h7 = new ProcesoFerrocarril(monitor, "Autos_AB");
-            ProcesoFerrocarril h8 = new ProcesoFerrocarril(monitor, "Personas_EST_B");                   
-            ProcesoFerrocarril h9 = new ProcesoFerrocarril(monitor, "suben_EST_B");
-            ProcesoFerrocarril h10 = new ProcesoFerrocarril(monitor, "bajan_EST_B");
-            ProcesoFerrocarril h11 = new ProcesoFerrocarril(monitor, "NoGente_EST_B");
-            ProcesoFerrocarril h12 = new ProcesoFerrocarril(monitor, "NoLugar_EST_B");
-            ProcesoFerrocarril h13 = new ProcesoFerrocarril(monitor, "Personas_EST_C");                   
-            ProcesoFerrocarril h14 = new ProcesoFerrocarril(monitor, "suben_EST_C");
-            ProcesoFerrocarril h15 = new ProcesoFerrocarril(monitor, "bajan_EST_C");
-            ProcesoFerrocarril h16 = new ProcesoFerrocarril(monitor, "NoGente_EST_C");
-            ProcesoFerrocarril h17 = new ProcesoFerrocarril(monitor, "NoLugar_EST_C");
-            ProcesoFerrocarril h18 = new ProcesoFerrocarril(monitor, "Autos_CD");
-            ProcesoFerrocarril h19 = new ProcesoFerrocarril(monitor, "Personas_EST_D");                   
-            ProcesoFerrocarril h20 = new ProcesoFerrocarril(monitor, "suben_EST_D");
-            ProcesoFerrocarril h21 = new ProcesoFerrocarril(monitor, "bajan_EST_D");
-            ProcesoFerrocarril h22 = new ProcesoFerrocarril(monitor, "NoGente_EST_D");
-            ProcesoFerrocarril h23 = new ProcesoFerrocarril(monitor, "NoLugar_EST_D");
+            ProcesoFerrocarril h2 = new ProcesoFerrocarril(monitor, "subenTren_EST_A");
+            ProcesoFerrocarril h3 = new ProcesoFerrocarril(monitor, "subenVagon_EST_A");
+            ProcesoFerrocarril h4 = new ProcesoFerrocarril(monitor, "bajanTren_EST_A");
+            ProcesoFerrocarril h5 = new ProcesoFerrocarril(monitor, "bajanVagon_EST_A");
+            ProcesoFerrocarril h6 = new ProcesoFerrocarril(monitor, "NoGente_EST_A");
+            ProcesoFerrocarril h7 = new ProcesoFerrocarril(monitor, "Tren");
+            ProcesoFerrocarril h8 = new ProcesoFerrocarril(monitor, "NoLugar_EST_A");
+            ProcesoFerrocarril h9 = new ProcesoFerrocarril(monitor, "Autos_AB");
+            ProcesoFerrocarril h10 = new ProcesoFerrocarril(monitor, "Personas_EST_B");                   
+            ProcesoFerrocarril h11 = new ProcesoFerrocarril(monitor, "subenTren_EST_B");
+            ProcesoFerrocarril h12 = new ProcesoFerrocarril(monitor, "subenVagon_EST_B");
+            ProcesoFerrocarril h13 = new ProcesoFerrocarril(monitor, "bajanTren_EST_B");
+            ProcesoFerrocarril h14 = new ProcesoFerrocarril(monitor, "bajanVagon_EST_B");
+            ProcesoFerrocarril h15 = new ProcesoFerrocarril(monitor, "NoGente_EST_B");
+            ProcesoFerrocarril h16 = new ProcesoFerrocarril(monitor, "NoLugar_EST_B");
+            ProcesoFerrocarril h17 = new ProcesoFerrocarril(monitor, "Personas_EST_C");                   
+            ProcesoFerrocarril h18 = new ProcesoFerrocarril(monitor, "subenTren_EST_C");
+            ProcesoFerrocarril h19 = new ProcesoFerrocarril(monitor, "subenVagon_EST_C");
+            ProcesoFerrocarril h20 = new ProcesoFerrocarril(monitor, "bajanTren_EST_C");
+            ProcesoFerrocarril h21 = new ProcesoFerrocarril(monitor, "bajanVagon_EST_C");
+            ProcesoFerrocarril h22 = new ProcesoFerrocarril(monitor, "NoGente_EST_C");
+            ProcesoFerrocarril h23 = new ProcesoFerrocarril(monitor, "NoLugar_EST_C");
+            ProcesoFerrocarril h24 = new ProcesoFerrocarril(monitor, "Autos_CD");
+            ProcesoFerrocarril h25 = new ProcesoFerrocarril(monitor, "Personas_EST_D");                   
+            ProcesoFerrocarril h26 = new ProcesoFerrocarril(monitor, "subenTren_EST_D");
+            ProcesoFerrocarril h27 = new ProcesoFerrocarril(monitor, "subenVagon_EST_D");
+            ProcesoFerrocarril h28 = new ProcesoFerrocarril(monitor, "bajanTren_EST_D");
+            ProcesoFerrocarril h29 = new ProcesoFerrocarril(monitor, "bajanVagon_EST_D");
+            ProcesoFerrocarril h30 = new ProcesoFerrocarril(monitor, "NoGente_EST_D");
+            ProcesoFerrocarril h31 = new ProcesoFerrocarril(monitor, "NoLugar_EST_D");
             
             h1.start();
             h2.start();
@@ -102,6 +110,14 @@ public class Main
             h21.start();
             h22.start();
             h23.start();
+            h24.start();
+            h25.start();
+            h26.start();
+            h27.start();
+            h28.start();
+            h29.start();
+            h30.start();
+            h31.start();
 		} 
 		catch (IOException ex) 
 		{
