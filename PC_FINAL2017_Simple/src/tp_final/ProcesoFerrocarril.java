@@ -64,10 +64,10 @@ public class ProcesoFerrocarril extends Thread
 				monitor.dispararTransicion(t4, "T4", "NoGente", sleep);
 			}
 			
-			if(nombreHilo == "Arranque")
+			if(nombreHilo == "Recorrido")
 			{
-				monitor.dispararTransicion(t0, "T0", "Arranque", sleep);
-				monitor.dispararTransicion(t1, "T1", "Arranque", sleep); 
+				monitor.dispararTransicion(t0, "T0", "Recorrido", sleep);
+				monitor.dispararTransicion(t1, "T1", "Recorrido", sleep); 
 			}
 			
 			if(nombreHilo == "NoLugar")

@@ -61,7 +61,7 @@ public class Main
             ProcesoFerrocarril h4 = new ProcesoFerrocarril(monitor, "bajanTren_EST_A");
             ProcesoFerrocarril h5 = new ProcesoFerrocarril(monitor, "bajanVagon_EST_A");
             ProcesoFerrocarril h6 = new ProcesoFerrocarril(monitor, "NoGente_EST_A");
-            ProcesoFerrocarril h7 = new ProcesoFerrocarril(monitor, "Tren");
+            ProcesoFerrocarril h7 = new ProcesoFerrocarril(monitor, "Recorrido");
             ProcesoFerrocarril h8 = new ProcesoFerrocarril(monitor, "NoLugar_EST_A");
             ProcesoFerrocarril h9 = new ProcesoFerrocarril(monitor, "Autos_AB");
             ProcesoFerrocarril h10 = new ProcesoFerrocarril(monitor, "Personas_EST_B");                   

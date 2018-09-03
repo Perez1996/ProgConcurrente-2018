@@ -92,15 +92,15 @@ public class ProcesoFerrocarril extends Thread
 				monitor.dispararTransicion(t35, "T35", "NoGente_EST_A", sleep);
 			}
 			
-			if(nombreHilo == "Tren") //HILO 7
+			if(nombreHilo == "Recorrido") //HILO 7
 			{
-				monitor.dispararTransicion(t0, "T0", "Tren", sleep);
-				monitor.dispararTransicion(t1, "T1", "Tren", sleep);
-				monitor.dispararTransicion(t2, "T2", "Tren", sleep);
-				monitor.dispararTransicion(t3, "T3", "Tren", sleep);
-				monitor.dispararTransicion(t4, "T4", "Tren", sleep);
-				monitor.dispararTransicion(t5, "T5", "Tren", sleep);
-				monitor.dispararTransicion(t6, "T6", "Tren", sleep);
+				monitor.dispararTransicion(t0, "T0", "Recorrido", sleep);
+				monitor.dispararTransicion(t1, "T1", "Recorrido", sleep);
+				monitor.dispararTransicion(t2, "T2", "Recorrido", sleep);
+				monitor.dispararTransicion(t3, "T3", "Recorrido", sleep);
+				monitor.dispararTransicion(t4, "T4", "Recorrido", sleep);
+				monitor.dispararTransicion(t5, "T5", "Recorrido", sleep);
+				monitor.dispararTransicion(t6, "T6", "Recorrido", sleep);
 				monitor.dispararTransicion(t7, "T7", "Tren", sleep);
 			}
 			
